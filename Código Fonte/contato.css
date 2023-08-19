@@ -1,0 +1,143 @@
+/* estilos gerais */
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-content {
+  min-height: calc(100vh - 116px);
+}
+
+/* Container do cabeçalho de navegação */
+.navbar {
+  width: 84%;
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bg-navbar {
+  width: 100%;
+  background-color: #335230;
+}
+
+/* Estilizando a logotipo do menu */
+.navbar-brand img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 15%;
+}
+
+/* Estilizando os links dos itens do menu */
+.navbar-nav li a {
+  list-style: none; /* Remover o marcador de lista padrão */
+  margin-right: 20px; /* Espaçamento entre os itens */
+  text-decoration: none;
+  color: #fff4c2;
+  border-radius: 20px;
+  padding: 6px 15px;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 5px rgba(255, 67, 33, 0);
+}
+
+/* Estilizando o hover nos links dos itens do menu */
+.navbar-nav li a:not(.active):hover {
+  background-color: #fff4c2;
+  color: #335230;
+  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6), 0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  transform: scale(1.05) translateY(-5px);
+}
+
+/* Cor da guia ativa */
+.navbar .navbar-nav li a.active {
+  background-color: #fff4c2;
+  color: #335230;
+  box-shadow:0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+}
+
+/* Ícones dos nav-links */
+.fa-solid {
+  margin-right: 5px;
+}
+
+/* Estilo para o Cartão do formulário */
+.card {
+  margin: 50px;
+  height: 600px;
+  width: 800px;
+  background-color: #335230;
+  border-radius: 20px;
+}
+
+/* Cabeçalho do formulário */
+.text-center{
+  color: #fff4c2;
+  font-weight: bold;
+}
+
+/* Estilo para os campos do formulário */
+.form-label {
+  font-weight: bold;
+  color: #fff4c2;
+}
+
+/* Botão */
+.btn-primary {
+  background-color: #fff4c2;
+  border-radius: 100px;
+  color: #335230;
+  box-shadow:0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s ease;
+}
+
+/* Hover do botão */
+.btn-primary:hover {
+  background-color: #fff4c2;
+  color: #335230;
+  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6), 0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  transform: scale(1.05) translateY(-5px);
+}
+
+/* Efeito de clique do botão */
+.btn-primary.btn-primary:active {
+  background-color: #fff4c2;
+  color: #335230;
+  box-shadow: #000000 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* Estilo do rodapé (footer) */
+footer {
+  padding: 20px 0;
+  font-size: 1.4vw;
+  font-weight: bold;
+  color: #fff4c2;
+  text-align: center;
+  background: #335230;
+  width: 100%;
+  z-index: 1; /* Coloca o rodapé na frente de outros elementos */
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #fff4c2;
+}
