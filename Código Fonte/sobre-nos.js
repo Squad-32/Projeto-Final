@@ -19,16 +19,12 @@ function setActiveLink() {
     document.querySelector('.nav-item a[href="projetos-e-acoes.html"]').classList.add('active');
   } else if (currentPage.includes('cursos.html')) {
     document.querySelector('.nav-item a[href="cursos.html"]').classList.add('active');
-  } else if (currentPage.includes('blog.html')) {
-    document.querySelector('.nav-item a[href="blog.html"]').classList.add('active');
   } else if (currentPage.includes('produtos.html')) {
     document.querySelector('.nav-item a[href="produtos.html"]').classList.add('active');
   } else if (currentPage.includes('faca-sua-parte.html')) {
     document.querySelector('.nav-item a[href="faca-sua-parte.html"]').classList.add('active');
   } else if (currentPage.includes('contato.html')) {
     document.querySelector('.nav-item a[href="contato.html"]').classList.add('active');
-  } else if (currentPage.includes('login.html')) {
-    document.querySelector('.nav-item a[href="login.html"]').classList.add('active');
   }
 }
 

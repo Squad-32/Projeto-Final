@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .bg-navbar {
@@ -31,16 +32,22 @@
   margin-bottom: 15%;
 }
 
+/* Estilizando cada item do menu no menu hambúrguer */
+.navbar-nav li {
+  display: block; /* Para que cada item fique em uma linha separada */
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
 /* Estilizando os links dos itens do menu */
 .navbar-nav li a {
   list-style: none; /* Remover o marcador de lista padrão */
   margin-right: 20px; /* Espaçamento entre os itens */
-  text-decoration: none;
   color: #fff4c2;
   border-radius: 20px;
   padding: 6px 15px;
   margin: 0 10px;
   font-weight: bold;
+  text-align: center;
   transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 5px rgba(255, 67, 33, 0);
 }
@@ -63,6 +70,54 @@
 /* Ícones dos nav-links */
 .fa-solid {
   margin-right: 5px;
+}
+
+/* Botão de Login */
+.btn-primary {
+  background-color: transparent;
+  border-radius: 100px;
+  color: #fff4c2;
+  cursor: pointer;
+  display: block;
+  padding: 6px 15px;
+  margin: 0 auto;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 5px rgba(255, 67, 33, 0);
+}
+
+/* Hover do botão */
+.btn-primary:hover {
+  background-color: #fff4c2;
+  color: #335230;
+  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6), 0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  transform: scale(1.05) translateY(-5px);
+}
+
+/* Efeito de clique do botão */
+.btn-primary.btn-primary:active {
+  background-color: #fff4c2;
+  color: #335230;
+  box-shadow: #000000 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* Estilizando o ícone e a borda do menu hambúrguer */
+.navbar-toggler .fa-bars {
+  border-color: #fff4c2; /* Cor da borda */
+  color: #fff4c2;
+  margin-right: 0;
+}
+.navbar-toggler {
+  border-color: #fff4c2; /* Cor da borda */
+  border-width: 2px;
 }
 
 /* Estilo do rodapé (footer) */
