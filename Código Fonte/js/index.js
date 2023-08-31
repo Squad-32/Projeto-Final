@@ -30,3 +30,49 @@ function setActiveLink() {
 
 // Chama a função para definir o link ativo na página carregada
 setActiveLink();
+
+/* --------------------------------- Funções para abrir e fechar o formulário de login -------------------------------- */
+// Constantes padrões
+const home = document.querySelector('.home');
+
+// Constantes do login/cadastro
+const formOpenBtn = document.querySelector('#form-open');
+const formContainer = document.querySelector('.form_container');
+const formCloseBtn = document.querySelector('.form_close');
+const signupBtn = document.querySelector('#signup');
+const loginBtn = document.querySelector('#login');
+const pwShowHide = document.querySelectorAll('.pw_hide');
+
+// Abre e fecha o formulário de login e cadastro
+formOpenBtn.addEventListener('click', () => {
+  home.classList.add('show');
+});
+
+// Fecha o formulário de login/cadastro
+formCloseBtn.addEventListener('click', () => {
+  home.classList.remove('show');
+});
+
+// Troca o ícone de mostrar e ocultar senha
+pwShowHide.forEach((icon) => {
+  icon.addEventListener('click', () => {
+    let getPwInput = icon.parentElement.querySelector('input');
+    if (getPwInput.type === 'password') {
+      getPwInput.type = 'text';
+      icon.classList.replace('fa-eye-slash', 'fa-eye');
+    } else {
+      getPwInput.type = 'password';
+      icon.classList.replace('fa-eye', 'fa-eye-slash');
+    }
+  });
+});
+
+/* Permite a troca entre o formulário de login e cadastro */
+signupBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  formContainer.classList.add('active');
+});
+loginBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  formContainer.classList.remove('active');
+});

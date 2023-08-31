@@ -1,4 +1,4 @@
-// Função para adicionar a classe .active ao link do menu correto
+/* -------------------------- Função para adicionar a classe .active ao link do menu correto -------------------------- */
 function setActiveLink() {
   const currentPage = window.location.pathname; // Obtém o caminho da página atual
 
@@ -30,3 +30,87 @@ function setActiveLink() {
 
 // Chama a função para definir o link ativo na página carregada
 setActiveLink();
+
+/* --------------------------------- Funções para abrir e fechar o formulário de login -------------------------------- */
+// Constantes padrões
+const home = document.querySelector('.home');
+
+// Constantes do login/cadastro
+const formOpenBtn = document.querySelector('#form-open');
+const formContainer = document.querySelector('.form_container');
+const formCloseBtn = document.querySelector('.form_close');
+const signupBtn = document.querySelector('#signup');
+const loginBtn = document.querySelector('#login');
+const pwShowHide = document.querySelectorAll('.pw_hide');
+
+// Abre e fecha o formulário de login e cadastro
+formOpenBtn.addEventListener('click', () => {
+  home.classList.add('show');
+});
+
+// Fecha o formulário de login/cadastro
+formCloseBtn.addEventListener('click', () => {
+  home.classList.remove('show');
+});
+
+// Troca o ícone de mostrar e ocultar senha
+pwShowHide.forEach((icon) => {
+  icon.addEventListener('click', () => {
+    let getPwInput = icon.parentElement.querySelector('input');
+    if (getPwInput.type === 'password') {
+      getPwInput.type = 'text';
+      icon.classList.replace('fa-eye-slash', 'fa-eye');
+    } else {
+      getPwInput.type = 'password';
+      icon.classList.replace('fa-eye', 'fa-eye-slash');
+    }
+  });
+});
+
+/* Permite a troca entre o formulário de login e cadastro */
+signupBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  formContainer.classList.add('active');
+});
+loginBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  formContainer.classList.remove('active');
+});
+
+/* ------------------------------ Funções para abrir e fechar o formulário de voluntário ------------------------------ */
+// Constantes padrões
+const card_form = document.querySelector('.card_form');
+
+// Constantes do login/cadastro
+const volunOpenBtn = document.querySelector('#volun_form_open');
+const volunCloseBtn = document.querySelector('.volun_form_close');
+
+// Abre e fecha o formulário de login e cadastro
+volunOpenBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  card_form.classList.add('show');
+});
+
+// Fecha o formulário de login/cadastro quando o botão de fechar é clicado
+volunCloseBtn.addEventListener('click', () => {
+  card_form.classList.remove('show');
+});
+
+/* ------------------------------ Funções para abrir e fechar o formulário de voluntário ------------------------------ */
+// Constantes padrões
+const card_don = document.querySelector('.card_don');
+
+// Constantes do login/cadastro
+const donOpenBtn = document.querySelector('#don_form_open');
+const donCloseBtn = document.querySelector('.don_form_close');
+
+// Abre e fecha o formulário de login e cadastro
+donOpenBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  card_don.classList.add('show');
+});
+
+// Fecha o formulário de login/cadastro quando o botão de fechar é clicado
+donCloseBtn.addEventListener('click', () => {
+  card_don.classList.remove('show');
+});

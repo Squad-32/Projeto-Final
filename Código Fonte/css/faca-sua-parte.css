@@ -1,31 +1,25 @@
 /*Link fontes*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&display=swap');
 
-/* estilos gerais */
-.container {
+/* Estilos gerais */
+* {
   max-width: 100%;
   margin: 0;
   padding: 0;
-}
-
-.page-content {
-  min-height: calc(100vh - 116px);
+  box-sizing: border-box;
+  font-family: 'roboto';
 }
 
 /* Container do cabeçalho de navegação */
 .navbar {
-  width: 84%;
+  padding: 1% 3% 0 3%;
+  width: 100%;
+  height: auto;
   margin: auto;
-  padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  align-items: center;
-}
-
-.bg-navbar {
-  width: 100%;
   background-color: #335230;
 }
 
@@ -34,6 +28,20 @@
   width: 200px;
   height: auto;
   margin-bottom: 15%;
+  transition: filter 0.1s ease, transform 0.2s ease;
+}
+
+/* Efeito do hover na imagem */
+.navbar-brand img:hover {
+  filter: drop-shadow(0 0 10px rgba(255, 244, 194, 0.6));
+  transform: scale(1.1) translateY(-0.1px);
+}
+
+/* Estilo do Header */
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
 /* Estilizando cada item do menu no menu hambúrguer */
@@ -44,15 +52,15 @@
 
 /* Estilizando os links dos itens do menu */
 .navbar-nav li a {
+  font-size: 90%;
   list-style: none; /* Remover o marcador de lista padrão */
-  margin-right: 20px; /* Espaçamento entre os itens */
+  margin: 0 20px 0 10px;
   color: #fff4c2;
   border-radius: 20px;
   padding: 6px 15px;
-  margin: 0 10px;
   font-weight: bold;
   text-align: center;
-  transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: color 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 5px rgba(255, 67, 33, 0);
 }
 
@@ -60,7 +68,8 @@
 .navbar-nav li a:not(.active):hover {
   background-color: #fff4c2;
   color: #335230;
-  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6), 0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6),
+    0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
   transform: scale(1.05) translateY(-5px);
 }
 
@@ -68,102 +77,798 @@
 .navbar .navbar-nav li a.active {
   background-color: #fff4c2;
   color: #335230;
-  box-shadow:0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
 }
 
 /* Ícones dos nav-links */
-.fa-solid {
+.nav-item .fa-solid {
   margin-right: 5px;
+  font-size: 100%;
 }
 
-/* Botão de Login */
-.btn-primary {
-  background-color: transparent;
-  border-radius: 100px;
+/* --------------------------------------------------- Menu Hambúrguer ------------------------------------------------ */
+
+/* Ícone do menu hambúrguer */
+.navbar-toggler .fa-bars {
+  font-size: 4vw;
+  border-color: #fff4c2;
   color: #fff4c2;
-  cursor: pointer;
+}
+
+/* Borda do menu hambúrguer */
+.navbar-toggler {
+  border-color: #fff4c2;
+  border-width: 0.5vw;
+}
+
+/* Define a altura da barra de navegação */
+:root {
+  --navbar-height: 80px; /* Defina a altura da barra de navegação aqui */
+}
+
+/* ------------------------------------------------------ Home -------------------------------------------------------- */
+/* Tamanho e cor da área do conteúdo da página */
+.home {
+  position: relative;
+  width: 100%;
+  background-color: #fff4c2;
+}
+
+/* Esconder Menu de Login/Cadastro */
+.home::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+}
+
+/* Mostrar Menu de Login/Cadastro */
+.home.show::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------------------------------------Formulário de login e cadastro----------------------------------------------- */
+/* From */
+.form_container {
+
+    position: fixed;
+  max-width: 320px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 101;
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 25px;
+  border-radius: 12px;
+  border: 3px solid #c0cb02;
+  box-shadow: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+  overflow: auto;
+}
+
+/* Abre o formulário de login */
+.home.show .form_container {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Oculta o formulário de inscrição por padrão */
+.signup_form {
+  display: none;
+}
+
+/* Exibe o formulário de inscrição quando o elemento form_container tem a classe active */
+.form_container.active .signup_form {
   display: block;
+}
+
+/* Oculta o formulário de login quando o elemento form_container tem a classe active */
+.form_container.active .login_form {
+  display: none;
+}
+
+/* Estilo do ícone "Fechar" */
+.form_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #ff531e;
+  font-size: 20px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* Título do formulário */
+.form_container h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 150%;
+  color: #ff531e;
+  text-align: center;
+}
+
+/* -------------------------------------------------- Caixa de Texto -------------------------------------------------- */
+/* Tamanho do container da caixa de texto */
+.input_box {
+  background-color: transparent;
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+}
+
+/* Tamanho da caixa de texto */
+.input_box input {
+  background-color: transparent;
+    margin-top: 5px;
+  height: 80%;
+  width: 100%;
+  border-color: #fff4c2;
+  outline-color: #ff531e;
+  padding: 0 30px;
+  transition: all 0.2s ease;
+  border: 2px solid #C0CB02;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
+  rgba(192, 203, 2, 0.25) 0 1px 2px,
+  rgba(192, 203, 2, 0.25) 0 2px 4px,
+  rgba(192, 203, 2, 0.25) 0 4px 8px,
+  rgba(192, 203, 2, 0.25) 0 8px 16px,
+  rgba(192, 203, 2, 0.25) 0 16px 32px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 30px;
+  color: #333;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+}
+
+/* Estilo da caixa de texto ativa */
+.input_box input:focus {
+  border-color: #fff4c2;
+  color: #fff4c2;
+}
+.input_box input[type='email']:focus::-webkit-input-placeholder,
+.input_box input[type='password']:focus::-webkit-input-placeholder {
+  color: #fff4c2;
+}
+.input_box input[type='email']:focus::-moz-placeholder,
+.input_box input[type='password']:focus::-moz-placeholder {
+  color: #fff4c2;
+}
+.input_box input[type='email']:focus:-ms-input-placeholder,
+.input_box input[type='password']:focus:-ms-input-placeholder {
+  color: #fff4c2;
+}
+.input_box input[type='email']:focus::placeholder,
+.input_box input[type='password']:focus::placeholder {
+  color: #fff4c2;
+}
+
+/* Posiciona os ícones dentro da caixa de texto e define suas propriedades de estilo */
+.input_box i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #707070;
+}
+
+/* Define a posição e o tamanho dos ícones de e-mail e senha */
+.input_box i.email,
+.input_box i.password {
+  left: 0;
+  font-size: 15px;
+}
+
+/* Define a posição e o tamanho do ícone de ocultar e mostrar a senha */
+.input_box i.pw_hide {
+  right: 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Cor dos ícones da caixa de texto ativa */
+.input_box input:focus ~ i.email,
+.input_box input:focus ~ i.password,
+.input_box input:focus ~ i.pw_hide {
+  color: #ff531e;
+}
+
+/* Remove o botão para visualizar e ocultar a senha */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+/* Define a posição e o tamanho do campo de opções */
+.option_field {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Define a cor e tamanho do texto no campo de opções */
+.form_container a {
+  color: #ff531e;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* Define o estilo do hover no campo de opções */
+.form_container a:hover {
+  text-decoration: underline;
+}
+
+/* Define o estilo da caixa de seleção */
+.checkbox {
+  display: flex;
+  column-gap: 8px;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------- Caixa de Seleção ------------------------------------------------- */
+/* Define a cor da caixa de seleção ativa */
+.checkbox input {
+  accent-color: #ff531e;
+}
+
+/* Define o tamanho e a a cor do texto na caixa de seleção */
+.checkbox label {
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+  color: #0b0217;
+}
+
+/* Define a cor do hover no texto da caixa de seleção */
+.checkbox label:hover {
+  color: #ff531e;
+}
+
+/* Define a cor do texto na caixa de seleção ativa */
+input[type='checkbox']:checked + label {
+  color: #ff531e;
+}
+
+/* -------------------------------------------- Botão de Login e Cadastro --------------------------------------------- */
+/* Cor e tamanho do botão de login e cadastro */
+.form_container .sgn_button,
+.lgn_button {
+  background: #ff531e;
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+  color: #fff4c2;
+}
+
+/* Efeito de clique do botão de login e cadastro */
+.form_container .sgn_button:active,
+.lgn_button:active {
+  background-color: #ff531e;
+  color: #fff4c2;
+  box-shadow: #000000 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* Estilo do texto "Não possui uma conta?" */
+.login_signup {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* --------------------------------------- Sessão do formulário de voluntário ----------------------------------------- */
+/* Ocultar formulário */
+.card_form::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 101;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+}
+
+/* Mostrar formulário */
+.card_form.show::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Estilo do formulário */
+.volun_container {
+  background-color: rgba(192, 203, 2, 0.3);
+  position: fixed;
+  max-width: 600px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 101;
+  padding: 25px;
+  border: 5px solid #c0cb02;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+  overflow: auto;
+}
+
+/* Título do formulário */
+.volun_container h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 150%;
+  color: #fff4c2;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* Abre o formulário */
+.card_form.show .volun_container {
+  text-decoration: none;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Estilo do ícone "Fechar" */
+.volun_form_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #ff531e;
+  font-size: 20px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* Tamanho do container da caixa de texto */
+.volun_input_box {
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+}
+
+/* Tamanho da caixa de texto */
+.volun_input_box input {
+  margin-top: 5px;
+  height: 80%;
+  width: 100%;
+  border-color: #fff4c2;
+  outline-color: #ff531e;
+  padding: 0 30px;
+  transition: all 0.2s ease;
+  border: 2px solid #C0CB02;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
+  rgba(192, 203, 2, 0.25) 0 1px 2px,
+  rgba(192, 203, 2, 0.25) 0 2px 4px,
+  rgba(192, 203, 2, 0.25) 0 4px 8px,
+  rgba(192, 203, 2, 0.25) 0 8px 16px,
+  rgba(192, 203, 2, 0.25) 0 16px 32px;
+}
+
+
+/* Estilo da caixa de texto ativa */
+.volun_input_box input:focus {
+  color: #212529;
+}
+.volun_input_box input[type='email']:focus::-webkit-input-placeholder,
+.volun_input_box input[type='text']:focus::-webkit-input-placeholder,
+.volun_input_box input[type='tel']:focus::-webkit-input-placeholder {
+  color: #212529;
+}
+.volun_input_box input[type='email']:focus::-moz-placeholder,
+.volun_input_box input[type='text']:focus::-moz-placeholder,
+.volun_input_box input[type='tel']:focus::-moz-placeholder {
+  color: #212529;
+}
+.volun_input_box input[type='email']:focus:-ms-input-placeholder,
+.volun_input_box input[type='text']:focus:-ms-input-placeholder,
+.volun_input_box input[type='tel']:focus:-ms-input-placeholder {
+  color: #212529;
+}
+.volun_input_box input[type='email']:focus::placeholder,
+.volun_input_box input[type='text']:focus::placeholder,
+.volun_input_box input[type='tel']:focus::placeholder {
+  color: #212529;
+}
+
+/* ---------------------------------------------- QR Code para donativos ---------------------------------------------- */
+/* Ocultar formulário */
+.card_don::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 101;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+}
+
+/* Mostrar formulário */
+.card_don.show::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Estilo do formulário */
+.don_container {
+  background-color: rgba(192, 203, 2, 0.3);
+  position: fixed;
+  max-width: 600px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 101;
+  padding: 2%;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+  border: 5px solid #c0cb02;
+  overflow: auto;
+}
+
+/* Título do formulário */
+.don_container h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 150%;
+  color: #fff4c2;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* Abre o formulário */
+.card_don.show .don_container {
+  text-decoration: none;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Estilo do ícone "Fechar" */
+.don_form_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #fff4c2;
+  font-size: 20px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.don_container p {
+  padding: 0.4%;
+  font-size: 20px;
+  font-family: 'roboto';
+  color: #fff4c2;
+  z-index: -1;
+  text-align: center;
+}
+
+.qrcode {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: 250px;
+  height: auto;
+  border: 5px solid #C0CB02;
+  border-radius: 20px;
+}
+
+/* ------------------------------------------------ Conteúdo da página ------------------------------------------------ */
+/* Estilo do Conteúdo da página */
+main {
+  position: relative;
+  z-index: 0;
+}
+
+/* ------------------------------------------------------ Banner ------------------------------------------------------ */
+/* Estilo da imagem */
+.section.parallax {
+  background-image: url('https://images.unsplash.com/photo-1530836176759-510f58baebf4');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - var(--navbar-height)); /* Altura total da viewport - altura da barra de navegação */
+  margin-top: var(--navbar-height); /* Espaçamento no topo igual à altura da barra de navegação */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo do título */
+.section h2 {
+  padding: 0.2%;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 5vw; /* Tornar o tamanho do texto responsivo */
+  color: #212529;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+/* Estilo do parágrafo */
+.section p {
+  padding: 0.2%;
+  font-family: 'roboto';
+  font-size: 1.9vw;
+  color: #212529;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+/* Estilo do nome do autor */
+.section i {
+  padding: 0.2%;
+  color: #fff4c2;
+  font-family: 'roboto';
+  font-size: 20px;
+  color: #212529;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+/* ----------------------------------------------------- Sessão 2 ----------------------------------------------------- */
+/* Estilo */
+.section2 {
+  padding: 4%;
+  font-size: 20px;
+  font-family: 'roboto';
+  color: #335230;
+  text-align: center;
+}
+
+/* Título da sessão */
+.section2 p {
+  display: inline-block;
+  padding: 0.4%;
+  font-size: 20px;
+  font-family: 'roboto';
+  color: #212529;
+  background-color: #c0cb02;
+  z-index: -1;
+}
+
+/* Estilo do texto e background */
+ol li {
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 2em;
+  margin: 0.5em 0;
+  background: #c0cb02;
+  color: #212529;
+  text-decoration: none;
+  border-radius: 0.3em;
+}
+
+/* Estilo do hover */
+ol li:hover {
+  background: #eaff00;
+  cursor: default;
+}
+
+/* Estilo da numeração */
+ol li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #212529;
+  color: #c0cb02;
+  height: 2em;
+  width: 2em;
+  border: 0.3em solid #fff;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  transition: all 0.3s ease-out;
+}
+
+/* ------------------------------------------------------ Cartões ----------------------------------------------------- */
+/* Adiciona um espaço entre o cartão e o footer */
+.card-group {
+  margin: 2% 8% 8% 7%;
+}
+
+/* Estilo da imagem */
+.card.parallax {
+  background-image: url('https://images.pexels.com/photos/6231697/pexels-photo-6231697.jpeg');
+  width: 70vw;
+  height: 30vw;
+  background-attachment: fixed;
+  background-position: center 65px;
+  background-repeat: no-repeat;
+  background-size: 40%;
+}
+
+/* Ajuste para telas menores usando media queries */
+@media (max-width: 768px) {
+  .card.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150vw;
+  height: 60vw;
+  }
+}
+
+/* Aplicar estilos quando a largura da tela está entre 600 e 800 pixels */
+@media (min-width: 600px) and (max-width: 800px) {
+  .card.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150vw;
+  height: 60vw;
+  }
+}
+
+/* Aplicar estilos quando a altura da tela está entre 400 e 600 pixels */
+@media (min-height: 400px) and (max-height: 600px) {
+  .card.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150vw;
+  height: 60vw;
+  }
+}
+
+/* Aplicar estilos em dispositivos com resolução de pelo menos 300dpi */
+@media (min-resolution: 300dpi) {
+  .card.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150vw;
+  height: 60vw;
+  }
+}
+
+/* Estilo */
+.card {
+  text-align: left;
+  border: none;
+  background-color: #c0cb02;
+}
+
+/* Título */
+.card-title {
+  padding-top: 40px;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 200%;
+}
+
+/* ------------------------------------------ Botão para abrir o formulário ------------------------------------------- */
+/* Ajusta a posição do botão "Seja um voluntário" */
+.btn_link_vonl,
+.btn_link_don {
+  display: flex;
+  justify-content: center; /* Centralizar horizontalmente */
+  align-items: center; /* Centralizar verticalmente */
+  top: 20px;
+  padding: 20px;
+}
+
+/* Estilo do botão */
+#volun_form_open,
+#don_form_open {
+  background-color: #ff531e;
+  text-decoration: none;
+  font-size: 90%;
+  list-style: none; /* Remover o marcador de lista padrão */
+  margin: 0 20px 0 10px;
+  color: #fff4c2;
+  border-radius: 20px;
   padding: 6px 15px;
-  margin: 0 auto;
   font-weight: bold;
   text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
   transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 5px rgba(255, 67, 33, 0);
 }
 
 /* Hover do botão */
-.btn-primary:hover {
+#volun_form_open:hover,
+#don_form_open:hover {
   background-color: #fff4c2;
-  color: #335230;
-  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6), 0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
-  transform: scale(1.05) translateY(-5px);
+  color: #ff531e;
+  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6),
+    0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  transform: scale(1.05) translateY(2px);
 }
 
 /* Efeito de clique do botão */
-.btn-primary.btn-primary:active {
+#volun_form_open:active,
+#don_form_open:active {
   background-color: #fff4c2;
-  color: #335230;
+  color: #ff531e;
   box-shadow: #000000 0 3px 7px inset;
   transform: translateY(2px);
 }
 
-/* Estilizando o ícone e a borda do menu hambúrguer */
-.navbar-toggler .fa-bars {
-  border-color: #fff4c2; /* Cor da borda */
-  color: #fff4c2;
-  margin-right: 0;
-}
-.navbar-toggler {
-  border-color: #fff4c2; /* Cor da borda */
-  border-width: 2px;
-}
-
-/* Estilo do main */
-
-.section {
-  background-color: #fff4c2; /* Cor de fundo verde */
-  padding-top: 80px;
-  padding-bottom: 40px;
-  color:#335230; /* Cor do texto */
-  font-family: 'roboto';
-  height: auto;
-  padding-left: 20px;
-}
-
-
-h2 {
-  font-family: 'yeseva one', cursive;
-  font-size: 75px;
-}
-
-.section2 {
-  font-size: 20px;
-  font-family: 'roboto';
-  padding: 50px;
-  text-align: center;
-  color: #335230;
-}
-
-.card {
-  text-align: center;
-}
-
-.card-title {
-  font-family: 'Yeseva One', cursive;
+/* ---------------------------------- Botão "Confirmar" do cadastro do voluntário" ------------------------------------ */
+/* Cor e tamanho do botão */
+.volun_button {
+  transition: all 0.1s ease-out;
+  border: 1px solid #c0cb02;
+  overflow: auto;
+  background-color: #C0CB02;
+  box-shadow:
+  0 0 25px 2px rgba(192, 203, 2, 0.4),
+  0 0 35px 4px rgba(192, 203, 2, 0.5),
+  0 0 45px 6px rgba(192,203,2);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid #c0cb02;
+  border-radius: 10px;
+  color: #212529;
   font-weight: bold;
 }
 
-.list {
-  padding-top: 40px;
+/* Efeito de clique do botão */
+.volun_button:active {
+  background-color: rgba(192, 203, 2, 0.3);
+  color: #212529;
+  box-shadow: #000000 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
-/* Estilo do rodapé (footer) */
+/* --------------------------------------------- Estilo do Rodapé (Footer) -------------------------------------------- */
+/* Propriedades */
 footer {
   padding: 20px 0;
   font-size: 1.4vw;
@@ -175,10 +880,18 @@ footer {
   z-index: 1; /* Coloca o rodapé na frente de outros elementos */
 }
 
+/* Estilo do parágrafo */
 footer p {
   margin: 0;
 }
 
+/* Estilo do Link */
 footer a {
   color: #fff4c2;
+  text-decoration: none;
+}
+/* Estilo do Link */
+footer a:hover {
+  color: #C0CB02;
+  text-decoration: underline;
 }
