@@ -134,6 +134,7 @@
   font-family: 'roboto';
   height: auto;
   padding-left: 20px;
+  font-weight: 500;
 }
 
 
@@ -142,26 +143,103 @@ h2 {
   font-size: 75px;
 }
 
+/*Informações*/
+
 .section2 {
   font-size: 20px;
   font-family: 'roboto';
-  padding: 50px;
+  padding: 40px;
   text-align: center;
   color: #335230;
+  font-weight: 500;
 }
 
+hr {
+
+color: #335230;
+}
+
+.list {
+  padding-top: 50px;
+}
+
+.paragraph {
+  margin-bottom: 20px; /* Adiciona 20px de espaçamento entre os parágrafos */
+}
+
+.image-container {
+  margin-top: -25px;
+}
+
+/*Doações cards*/
+
+.card-container {
+background-color: #fff4c2;
+
+}
 .card {
   text-align: center;
+  background-color: #fff4c2;
+  border: none;
+  font-family: 'roboto';
+  padding-bottom: 60px;
 }
 
 .card-title {
   font-family: 'Yeseva One', cursive;
   font-weight: bold;
+  font-weight: lighter;
+  font-size: 45px;
+  color: #335230;
+  letter-spacing: 2px;
 }
 
-.list {
-  padding-top: 40px;
+.btn-card {
+  background-color: #335230;
+  border-radius: 60px;
+  color: #fff4c2;
+  cursor: pointer;
+  display: block;
+  padding: 6px 15px;
+  margin: 0 auto;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px #adff142f ;
 }
+
+.btn-card:hover {
+  background-color: #FF8B20;
+}
+
+/*Botão modal*/
+
+.btn-modal {
+  background-color: #335230;
+  border-radius: 60px;
+  color: #fff4c2;
+  cursor: pointer;
+  display: block;
+  padding: 6px 15px;
+  margin: 0 auto;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px #adff142f ;
+}
+
 
 /* Estilo do rodapé (footer) */
 footer {
@@ -182,3 +260,4 @@ footer p {
 footer a {
   color: #fff4c2;
 }
+
