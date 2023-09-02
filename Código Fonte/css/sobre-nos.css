@@ -11,13 +11,9 @@
   font-family: 'roboto';
 }
 
-/* Estilo do conteúdo da página */
-.page-content {
-  min-height: calc(100vh - 116px);
-}
-
 /* Container do cabeçalho de navegação */
 .navbar {
+  z-index: 2;
   padding: 1% 3% 0 3%;
   width: 100%;
   height: auto;
@@ -25,7 +21,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #335230;
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 0.3em;
+  border-bottom: 3px solid #c0cb02;
+  box-shadow: rgba(0, 0, 0, 0.1);
 }
 
 /* Estilizando a logotipo do menu */
@@ -33,12 +35,14 @@
   width: 200px;
   height: auto;
   margin-bottom: 15%;
-  transition: filter 0.1s ease, transform 0.2s ease;
+  filter: drop-shadow(0 0 10px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 20px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 100px rgba(192, 203, 2, 0.6));
+  transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 /* Efeito do hover na imagem */
 .navbar-brand img:hover {
-  filter: drop-shadow(0 0 10px rgba(255, 244, 194, 0.6));
+  border: 1px #fff4c2;
+  filter: drop-shadow(0 0 10px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 20px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 100px rgba(192, 203, 2, 0.6));
   transform: scale(1.1) translateY(-0.1px);
 }
 
@@ -57,11 +61,11 @@
 
 /* Estilizando os links dos itens do menu */
 .navbar-nav li a {
-  font-size: 90%;
+  font-size: 1.3vw;
   list-style: none; /* Remover o marcador de lista padrão */
   margin: 0 20px 0 10px;
-  color: #fff4c2;
-  border-radius: 20px;
+  color: #335230;
+  border-radius: 0.3em;
   padding: 6px 15px;
   font-weight: bold;
   text-align: center;
@@ -73,8 +77,7 @@
 .navbar-nav li a:not(.active):hover {
   background-color: #fff4c2;
   color: #335230;
-  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6),
-    0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.6), 0 0 20px rgba(192, 203, 2, 0.6), 0 0 100px rgba(192, 203, 2, 0.6);
   transform: scale(1.05) translateY(-5px);
 }
 
@@ -82,7 +85,7 @@
 .navbar .navbar-nav li a.active {
   background-color: #fff4c2;
   color: #335230;
-  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.6), 0 0 20px rgba(192, 203, 2, 0.6), 0 0 100px rgba(192, 203, 2, 0.6);
 }
 
 /* Ícones dos nav-links */
@@ -146,17 +149,22 @@
   position: fixed;
   max-width: 320px;
   width: 100%;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1.2);
   z-index: 101;
-  background: #fff;
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
   padding: 25px;
-  border-radius: 12px;
+  border-radius: 0.3em;
+  border: 3px solid #c0cb02;
   box-shadow: rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s ease-out;
+  overflow: auto;
 }
 
 /* Abre o formulário de login */
@@ -186,7 +194,7 @@
   position: absolute;
   top: 10px;
   right: 15px;
-  color: #ff531e;
+  color: #fff4c2;
   font-size: 20px;
   opacity: 0.7;
   cursor: pointer;
@@ -197,13 +205,25 @@
   font-family: 'Fraunces', serif;
   font-weight: 600;
   font-size: 150%;
-  color: #ff531e;
+  color: #fff4c2;
   text-align: center;
 }
 
 /* -------------------------------------------------- Caixa de Texto -------------------------------------------------- */
 /* Tamanho do container da caixa de texto */
 .input_box {
+  border-color: #fff4c2;
+  outline-color: #ff531e;
+  border: 2px solid rgba(192, 203, 2);
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset, rgba(192, 203, 2, 0.25) 0 1px 2px, rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px, rgba(192, 203, 2, 0.25) 0 8px 16px, rgba(192, 203, 2, 0.25) 0 16px 32px;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+  border: 2px solid rgba(192, 203, 2);
+  background-color: transparent;
+  color: #fff4c2;
   position: relative;
   margin-top: 30px;
   width: 100%;
@@ -212,45 +232,32 @@
 
 /* Tamanho da caixa de texto */
 .input_box input {
+  font-weight: bold;
+  color: #fff4c2;
+  background-color: transparent;
+  height: 80%;
+  width: 100%;
+  padding: 0 30px;
+  transition: all 0.2s ease;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset, rgba(192, 203, 2, 0.25) 0 1px 2px, rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px, rgba(192, 203, 2, 0.25) 0 8px 16px, rgba(192, 203, 2, 0.25) 0 16px 32px;
   height: 100%;
   width: 100%;
   border: none;
   outline: none;
   padding: 0 30px;
-  color: #333;
   transition: all 0.2s ease;
   border-bottom: 1.5px solid #aaaaaa;
 }
 
-/* Estilo da caixa de texto ativa */
-.input_box input:focus {
-  border-color: #ff531e;
-  color: #ff531e;
-}
-.input_box input[type='email']:focus::-webkit-input-placeholder,
-.input_box input[type='password']:focus::-webkit-input-placeholder {
-  color: #ff531e;
-}
-.input_box input[type='email']:focus::-moz-placeholder,
-.input_box input[type='password']:focus::-moz-placeholder {
-  color: #ff531e;
-}
-.input_box input[type='email']:focus:-ms-input-placeholder,
-.input_box input[type='password']:focus:-ms-input-placeholder {
-  color: #ff531e;
-}
-.input_box input[type='email']:focus::placeholder,
-.input_box input[type='password']:focus::placeholder {
-  color: #ff531e;
-}
-
 /* Posiciona os ícones dentro da caixa de texto e define suas propriedades de estilo */
 .input_box i {
+  padding: 0 2% 0 2%;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 35%;
+  transform: translateY(-20%);
   font-size: 20px;
-  color: #707070;
+  color: #fff4c2;
 }
 
 /* Define a posição e o tamanho dos ícones de e-mail e senha */
@@ -267,17 +274,15 @@
   cursor: pointer;
 }
 
-/* Cor dos ícones da caixa de texto ativa */
-.input_box input:focus ~ i.email,
-.input_box input:focus ~ i.password,
-.input_box input:focus ~ i.pw_hide {
-  color: #ff531e;
-}
-
 /* Remove o botão para visualizar e ocultar a senha */
 input::-ms-reveal,
 input::-ms-clear {
   display: none;
+}
+
+/* Estilo do placeholder */
+.input_box input::placeholder {
+  color: #fff4c2;
 }
 
 /* Define a posição e o tamanho do campo de opções */
@@ -290,14 +295,17 @@ input::-ms-clear {
 
 /* Define a cor e tamanho do texto no campo de opções */
 .form_container a {
-  color: #ff531e;
-  font-size: 12px;
+  color: #fff4c2;
+  font-size: 1vw;
   text-decoration: none;
+  font-weight: bold;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 
 /* Define o estilo do hover no campo de opções */
 .form_container a:hover {
   text-decoration: underline;
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
 }
 
 /* Define o estilo da caixa de seleção */
@@ -307,46 +315,70 @@ input::-ms-clear {
   white-space: nowrap;
 }
 
+.checkbox input:hover {
+  box-shadow: 0 0 10px rgba(255, 83, 30, 1);
+}
+
 /* ------------------------------------------------- Caixa de Seleção ------------------------------------------------- */
 /* Define a cor da caixa de seleção ativa */
 .checkbox input {
-  accent-color: #ff531e;
+  accent-color: #fff4c2;
 }
 
 /* Define o tamanho e a a cor do texto na caixa de seleção */
 .checkbox label {
   font-size: 12px;
+  font-weight: bold;
   cursor: pointer;
   user-select: none;
-  color: #0b0217;
+  color: #fff4c2;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 
 /* Define a cor do hover no texto da caixa de seleção */
 .checkbox label:hover {
-  color: #ff531e;
-}
-
-/* Define a cor do texto na caixa de seleção ativa */
-input[type='checkbox']:checked + label {
-  color: #ff531e;
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+  text-decoration: underline;
 }
 
 /* -------------------------------------------- Botão de Login e Cadastro --------------------------------------------- */
 /* Cor e tamanho do botão de login e cadastro */
 .form_container .sgn_button,
 .lgn_button {
-  background: #ff531e;
+  background-color: rgba(192, 203, 2, 0.3);
   margin-top: 30px;
   width: 100%;
   padding: 10px 0;
-  border-radius: 10px;
+  border-radius: 0.3em;
   color: #fff4c2;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s, transform 0.3s ease, text-shadow 0.2s ease-in-out;
+}
+
+.form_container .sgn_button:hover,
+.lgn_button:hover {
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 0.3em;
+  background-color: rgba(192, 203, 2, 0.3);
+  border: 2px solid #c0cb02;
+  color: #335230;
+  box-shadow: 0 0 25px 2px rgba(192, 203, 2, 0.4), 0 0 35px 4px rgba(192, 203, 2, 0.5), 0 0 45px 6px rgba(192, 203, 2);
+  transform: scale(1.05) translateY(-5px);
+  color: #fff4c2;
+  cursor: pointer;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 /* Efeito de clique do botão de login e cadastro */
 .form_container .sgn_button:active,
 .lgn_button:active {
-  background-color: #ff531e;
+  text-shadow: none;
+  background-color: rgba(51, 82, 48, 0.3);
   color: #fff4c2;
   box-shadow: #000000 0 3px 7px inset;
   transform: translateY(2px);
@@ -354,22 +386,320 @@ input[type='checkbox']:checked + label {
 
 /* Estilo do texto "Não possui uma conta?" */
 .login_signup {
+  font-weight: bold;
+  color: #fff4c2;
   font-size: 12px;
   text-align: center;
   margin-top: 15px;
 }
 
+/* ------------------------------------------------ Conteúdo da página ------------------------------------------------ */
+/* Estilo do Conteúdo da página */
+main {
+  position: relative;
+  z-index: 0;
+}
+
+/* ------------------------------------------------------ Banner ------------------------------------------------------ */
+/* Estilo da imagem */
+.section.parallax {
+  background-image: url('../img/mulher4.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - var(--navbar-height));
+  /* Altura total da viewport - altura da barra de navegação */
+  margin-top: var(--navbar-height);
+  /* Espaçamento no topo igual à altura da barra de navegação */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo do título */
+.section h2 {
+  padding: 0.4%;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 5vw;
+  /* Tornar o tamanho do texto responsivo */
+  color: #212529;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+/* Estilo do parágrafo */
+.section p {
+  padding: 0.2%;
+  margin: 0.5%;
+  font-family: 'roboto';
+  font-size: 1.9vw;
+  color: #212529;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+/* ------------------------------------------------- Ações e projetos ------------------------------------------------- */
+/* Estilo para a sessão dos cartões */
+.custom-section {
+  color: #212529;
+  background-color: #fff4c2;
+}
+
+/* Título */
+.custom-section h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 5vw;
+  color: #C0CB02;
+}
+
+/* Parágrafo */
+.row p {
+  padding-top: 220px;
+  font-size: 1.5vw;
+  text-align: left;
+}
+
+/* Transparência dos cartões */
+.card {
+  background-color: rgba(192, 203, 2, 0.3);
+  border-radius: 20px;
+  border: 2px solid;
+  border-color: #C0CB02;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Título */
+.card-header {
+  color: #212529;
+  font-size: 2vw;
+  font-weight: bold;
+  margin: 15px;
+  text-align: center;
+  border: 2px solid;
+  border-color: #C0CB02;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
+    rgba(192, 203, 2, 0.25) 0 1px 2px,
+    rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px,
+    rgba(192, 203, 2, 0.25) 0 8px 16px,
+    rgba(192, 203, 2, 0.25) 0 16px 32px;
+}
+
+/* Parágrafo */
+.card-text {
+  color: #212529;
+  font-weight: bold;
+}
+
+/* Estilo para o container de imagem */
+.img-container {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+/* Estilo para a imagem dos cartões */
+.card-img-top {
+  border-radius: 20px;
+  border: 2px solid;
+  border-color: #C0CB02;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
+    rgba(192, 203, 2, 0.25) 0 1px 2px,
+    rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px,
+    rgba(192, 203, 2, 0.25) 0 8px 16px,
+    rgba(192, 203, 2, 0.25) 0 16px 32px;
+}
+
+.col-md-4 {
+  padding-bottom: 2%;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fixed-height {
+  height: 100%
+}
+
+
+/* --------------------------------------------- INICIO NOSSOS VALORES/EQUIPE  -------------------------------------------- */
+
+
+/* INICIO NOSSA EQUIPE*/
+.equipe-container h2 {
+  display: flex;
+  background-color: rgb(15, 40, 17);
+  border-radius: 5px 10px;
+  margin: 0 10% 0 15%;
+
+}
+
+.equipe-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+
+}
+
+.membro-equipe {
+  width: calc(20% - 10px);
+  /* Para ocupar 25% do espaço e adicionar um espaçamento entre as imagens */
+  margin-bottom: 5px;
+  text-align: center;
+  transition: transform 0.9s ease-in-out;
+
+
+}
+
+.membro-equipe img {
+  max-width: 50%;
+  height: auto;
+}
+
+.membro-equipe h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  /* Adiciona um espaçamento entre a imagem e o nome */
+}
+
+.membro-equipe:hover {
+  transform: scale(1.14);
+  /* Aumenta a escala da imagem em 5% ao passar o mouse */
+
+}
+
+/* FIM NOSSA EQUIPE*/
+
+
+/*--------------------------------  INICIO CARD EQUIPE---------------------------------------------*/
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  /* Isso irá espaçar os cards igualmente na linha */
+  align-items: center;
+  /* Isso alinhará verticalmente os cards ao centro */
+  flex-wrap: wrap;
+  /* Isso permitirá que os cards quebrem para a próxima linha se não couberem na largura */
+  margin: 60px;
+
+}
+
+.card {
+  max-width: 300px;
+  /* Define o tamanho máximo que você deseja para os cards */
+
+  width: 200px;
+  height: 250px;
+  background: #07182E;
+  border-radius: 5px;
+  text-align: center;
+  color: #f0f0f0;
+  overflow: hidden;
+  font-family: inherit;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  padding: 2rem 1.5rem;
+  transition: box-shadow .3s ease, transform .2s ease;
+  background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+
+}
+
+
+.img-container:hover img {
+  transform: scale(1.5);
+}
+
+/* Remove o sublinhado de todos os links */
+a {
+  text-decoration: none;
+}
+
+/* Ou, se desejar remover o sublinhado apenas de links específicos com uma classe ou ID: */
+.classe-do-link {
+  text-decoration: none;
+}
+
+#id-do-link {
+  text-decoration: none;
+}
+
+
+.img {
+  display: flex;
+  margin: 60px auto 10px auto;
+  width: 75px;
+  height: 75px;
+  font-size: 11px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  z-index: 99;
+
+
+}
+
+.icones p {
+  opacity: -1;
+  transition: all 0.5s;
+
+}
+
+.heading {
+  padding: 10px;
+  font-weight: 500;
+  font-size: 18px;
+
+}
+
+svg {
+  padding: 0 3px;
+  cursor: pointer;
+
+
+}
+
+
+.card:hover h1,
+.card:hover p {
+  opacity: 1.5;
+
+}
+
+
 /* --------------------------------------------- Estilo do Rodapé (Footer) -------------------------------------------- */
 /* Propriedades */
 footer {
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 25px;
+  border-radius: 0.3em;
+  border-top: 3px solid #c0cb02;
+  box-shadow: rgba(0, 0, 0, 0.1);
   padding: 20px 0;
   font-size: 1.4vw;
   font-weight: bold;
-  color: #fff4c2;
+  color: #335230;
   text-align: center;
-  background: #335230;
   width: 100%;
-  z-index: 1; /* Coloca o rodapé na frente de outros elementos */
+  z-index: 2;
 }
 
 /* Estilo do parágrafo */
@@ -379,11 +709,12 @@ footer p {
 
 /* Estilo do Link */
 footer a {
-  color: #fff4c2;
+  color: #335230;
   text-decoration: none;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 /* Estilo do Link */
 footer a:hover {
-  color: #C0CB02;
   text-decoration: underline;
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
 }

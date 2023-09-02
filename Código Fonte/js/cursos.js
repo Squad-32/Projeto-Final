@@ -19,8 +19,6 @@ function setActiveLink() {
     document.querySelector('.nav-item a[href="projetos-e-acoes.html"]').classList.add('active');
   } else if (currentPage.includes('cursos.html')) {
     document.querySelector('.nav-item a[href="cursos.html"]').classList.add('active');
-  } else if (currentPage.includes('produtos.html')) {
-    document.querySelector('.nav-item a[href="produtos.html"]').classList.add('active');
   } else if (currentPage.includes('faca-sua-parte.html')) {
     document.querySelector('.nav-item a[href="faca-sua-parte.html"]').classList.add('active');
   } else if (currentPage.includes('contato.html')) {
@@ -75,4 +73,104 @@ signupBtn.addEventListener('click', (e) => {
 loginBtn.addEventListener('click', (e) => {
   e.preventDefault();
   formContainer.classList.remove('active');
+});
+
+/*  */
+const main_video = document.querySelector('.main-video video');
+const main_video_title = document.querySelector('.main-video .title');
+const video_playlist = document.querySelector('.video-playlist .videos');
+
+let data = [
+  {
+    id: 'a1',
+    title: 'Diversidade e inclusão',
+    name: '../vid/Diversidade e inclusão.mp4',
+    duration: '0:12',
+  },
+  {
+    id: 'a2',
+    title: 'Preparo e Cuidado Com o Solo',
+    name: '../vid/Preparo e Cuidado Com o Solo.mp4',
+    duration: '1:02',
+  },
+  {
+    id: 'a3',
+    title: 'Ações Voluntária de Limpeza',
+    name: '../vid/Ações Voluntária de Limpeza.mp4',
+    duration: '0:14',
+  },
+  {
+    id: 'a4',
+    title: 'Empoderamento e Liderança',
+    name: '../vid/Empoderamento e Liderança.mp4',
+    duration: '0:08',
+  },
+  {
+    id: 'a5',
+    title: 'Permacultura',
+    name: '../vid/Permacultura.mp4',
+    duration: '0:15',
+  },
+  {
+    id: 'a6',
+    title: 'Descarte Consciente',
+    name: '../vid/Descarte Consciente.mp4',
+    duration: '0:09',
+  },
+  {
+    id: 'a7',
+    title: 'Agricultura Sustentável',
+    name: '../vid/Agricultura Sustentável.mp4',
+    duration: '0:29',
+  },
+  {
+    id: 'a8',
+    title: 'Consumo Consciente',
+    name: '../vid/Consumo Consciente.mp4',
+    duration: '0:04',
+  },
+  {
+    id: 'a9',
+    title: 'Direitos Humanos e a Diversidade LGBTQIA+',
+    name: '../vid/Direitos Humanos e a Diversidade LGBTQIA.mp4',
+    duration: '0:17',
+  },
+  {
+    id: 'a10',
+    title: 'A Importância da Liderança na Promoção dos Direitos Humanos e da Igualdade',
+    name: '../vid/A Importância da Liderança na Promoção dos Direitos Humanos e da Igualdade.mp4',
+    duration: '0:39',
+  },
+];
+
+data.forEach((video, i) => {
+  let video_element = `
+                <div class="video" data-id="${video.id}">
+                    <img src="../img/play.svg" alt="">
+                    <p>${i + 1 > 9 ? i + 1 : '0' + (i + 1)}. </p>
+                    <h3 class="title">${video.title}</h3>
+                    <p class="time">${video.duration}</p>
+                </div>
+    `;
+  video_playlist.innerHTML += video_element;
+});
+
+let videos = document.querySelectorAll('.video');
+videos[0].classList.add('active');
+videos[0].querySelector('img').src = '../img/pause.svg';
+
+videos.forEach((selected_video) => {
+  selected_video.onclick = () => {
+    for (all_videos of videos) {
+      all_videos.classList.remove('active');
+      all_videos.querySelector('img').src = '../img/play.svg';
+    }
+
+    selected_video.classList.add('active');
+    selected_video.querySelector('img').src = '../img/pause.svg';
+
+    let match_video = data.find((video) => video.id == selected_video.dataset.id);
+    main_video.src = match_video.name;
+    main_video_title.innerHTML = match_video.title;
+  };
 });

@@ -19,8 +19,6 @@ function setActiveLink() {
     document.querySelector('.nav-item a[href="projetos-e-acoes.html"]').classList.add('active');
   } else if (currentPage.includes('cursos.html')) {
     document.querySelector('.nav-item a[href="cursos.html"]').classList.add('active');
-  } else if (currentPage.includes('produtos.html')) {
-    document.querySelector('.nav-item a[href="produtos.html"]').classList.add('active');
   } else if (currentPage.includes('faca-sua-parte.html')) {
     document.querySelector('.nav-item a[href="faca-sua-parte.html"]').classList.add('active');
   } else if (currentPage.includes('contato.html')) {

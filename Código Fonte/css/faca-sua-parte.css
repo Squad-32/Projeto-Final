@@ -13,6 +13,7 @@
 
 /* Container do cabeçalho de navegação */
 .navbar {
+  z-index: 101;
   padding: 1% 3% 0 3%;
   width: 100%;
   height: auto;
@@ -20,7 +21,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #335230;
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 0.3em;
+  border-bottom: 3px solid #c0cb02;
+  box-shadow: rgba(0, 0, 0, 0.1);
 }
 
 /* Estilizando a logotipo do menu */
@@ -28,12 +35,14 @@
   width: 200px;
   height: auto;
   margin-bottom: 15%;
-  transition: filter 0.1s ease, transform 0.2s ease;
+  filter: drop-shadow(0 0 10px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 20px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 100px rgba(192, 203, 2, 0.6));
+  transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 /* Efeito do hover na imagem */
 .navbar-brand img:hover {
-  filter: drop-shadow(0 0 10px rgba(255, 244, 194, 0.6));
+  border: 1px #fff4c2;
+  filter: drop-shadow(0 0 10px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 20px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 100px rgba(192, 203, 2, 0.6));
   transform: scale(1.1) translateY(-0.1px);
 }
 
@@ -52,11 +61,11 @@
 
 /* Estilizando os links dos itens do menu */
 .navbar-nav li a {
-  font-size: 90%;
+  font-size: 1.3vw;
   list-style: none; /* Remover o marcador de lista padrão */
   margin: 0 20px 0 10px;
-  color: #fff4c2;
-  border-radius: 20px;
+  color: #335230;
+  border-radius: 0.3em;
   padding: 6px 15px;
   font-weight: bold;
   text-align: center;
@@ -68,8 +77,7 @@
 .navbar-nav li a:not(.active):hover {
   background-color: #fff4c2;
   color: #335230;
-  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6),
-    0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.6), 0 0 20px rgba(192, 203, 2, 0.6), 0 0 100px rgba(192, 203, 2, 0.6);
   transform: scale(1.05) translateY(-5px);
 }
 
@@ -77,7 +85,7 @@
 .navbar .navbar-nav li a.active {
   background-color: #fff4c2;
   color: #335230;
-  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.6), 0 0 20px rgba(192, 203, 2, 0.6), 0 0 100px rgba(192, 203, 2, 0.6);
 }
 
 /* Ícones dos nav-links */
@@ -138,8 +146,7 @@
 /* ---------------------------------------Formulário de login e cadastro----------------------------------------------- */
 /* From */
 .form_container {
-
-    position: fixed;
+  position: fixed;
   max-width: 320px;
   width: 100%;
   top: 50%;
@@ -151,7 +158,7 @@
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px);
   padding: 25px;
-  border-radius: 12px;
+  border-radius: 0.3em;
   border: 3px solid #c0cb02;
   box-shadow: rgba(0, 0, 0, 0.1);
   opacity: 0;
@@ -187,7 +194,7 @@
   position: absolute;
   top: 10px;
   right: 15px;
-  color: #ff531e;
+  color: #fff4c2;
   font-size: 20px;
   opacity: 0.7;
   cursor: pointer;
@@ -198,14 +205,25 @@
   font-family: 'Fraunces', serif;
   font-weight: 600;
   font-size: 150%;
-  color: #ff531e;
+  color: #fff4c2;
   text-align: center;
 }
 
 /* -------------------------------------------------- Caixa de Texto -------------------------------------------------- */
 /* Tamanho do container da caixa de texto */
 .input_box {
+  border-color: #fff4c2;
+  outline-color: #ff531e;
+  border: 2px solid rgba(192, 203, 2);
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset, rgba(192, 203, 2, 0.25) 0 1px 2px, rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px, rgba(192, 203, 2, 0.25) 0 8px 16px, rgba(192, 203, 2, 0.25) 0 16px 32px;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+  border: 2px solid rgba(192, 203, 2);
   background-color: transparent;
+  color: #fff4c2;
   position: relative;
   margin-top: 30px;
   width: 100%;
@@ -214,60 +232,32 @@
 
 /* Tamanho da caixa de texto */
 .input_box input {
+  font-weight: bold;
+  color: #fff4c2;
   background-color: transparent;
-    margin-top: 5px;
   height: 80%;
   width: 100%;
-  border-color: #fff4c2;
-  outline-color: #ff531e;
   padding: 0 30px;
   transition: all 0.2s ease;
-  border: 2px solid #C0CB02;
-  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
-  rgba(192, 203, 2, 0.25) 0 1px 2px,
-  rgba(192, 203, 2, 0.25) 0 2px 4px,
-  rgba(192, 203, 2, 0.25) 0 4px 8px,
-  rgba(192, 203, 2, 0.25) 0 8px 16px,
-  rgba(192, 203, 2, 0.25) 0 16px 32px;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset, rgba(192, 203, 2, 0.25) 0 1px 2px, rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px, rgba(192, 203, 2, 0.25) 0 8px 16px, rgba(192, 203, 2, 0.25) 0 16px 32px;
   height: 100%;
   width: 100%;
   border: none;
   outline: none;
   padding: 0 30px;
-  color: #333;
   transition: all 0.2s ease;
   border-bottom: 1.5px solid #aaaaaa;
 }
 
-/* Estilo da caixa de texto ativa */
-.input_box input:focus {
-  border-color: #fff4c2;
-  color: #fff4c2;
-}
-.input_box input[type='email']:focus::-webkit-input-placeholder,
-.input_box input[type='password']:focus::-webkit-input-placeholder {
-  color: #fff4c2;
-}
-.input_box input[type='email']:focus::-moz-placeholder,
-.input_box input[type='password']:focus::-moz-placeholder {
-  color: #fff4c2;
-}
-.input_box input[type='email']:focus:-ms-input-placeholder,
-.input_box input[type='password']:focus:-ms-input-placeholder {
-  color: #fff4c2;
-}
-.input_box input[type='email']:focus::placeholder,
-.input_box input[type='password']:focus::placeholder {
-  color: #fff4c2;
-}
-
 /* Posiciona os ícones dentro da caixa de texto e define suas propriedades de estilo */
 .input_box i {
+  padding: 0 2% 0 2%;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 35%;
+  transform: translateY(-20%);
   font-size: 20px;
-  color: #707070;
+  color: #fff4c2;
 }
 
 /* Define a posição e o tamanho dos ícones de e-mail e senha */
@@ -284,17 +274,15 @@
   cursor: pointer;
 }
 
-/* Cor dos ícones da caixa de texto ativa */
-.input_box input:focus ~ i.email,
-.input_box input:focus ~ i.password,
-.input_box input:focus ~ i.pw_hide {
-  color: #ff531e;
-}
-
 /* Remove o botão para visualizar e ocultar a senha */
 input::-ms-reveal,
 input::-ms-clear {
   display: none;
+}
+
+/* Estilo do placeholder */
+.input_box input::placeholder {
+  color: #fff4c2;
 }
 
 /* Define a posição e o tamanho do campo de opções */
@@ -307,14 +295,17 @@ input::-ms-clear {
 
 /* Define a cor e tamanho do texto no campo de opções */
 .form_container a {
-  color: #ff531e;
-  font-size: 12px;
+  color: #fff4c2;
+  font-size: 1vw;
   text-decoration: none;
+  font-weight: bold;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 
 /* Define o estilo do hover no campo de opções */
 .form_container a:hover {
   text-decoration: underline;
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
 }
 
 /* Define o estilo da caixa de seleção */
@@ -324,46 +315,70 @@ input::-ms-clear {
   white-space: nowrap;
 }
 
+.checkbox input:hover {
+  box-shadow: 0 0 10px rgba(255, 83, 30, 1);
+}
+
 /* ------------------------------------------------- Caixa de Seleção ------------------------------------------------- */
 /* Define a cor da caixa de seleção ativa */
 .checkbox input {
-  accent-color: #ff531e;
+  accent-color: #fff4c2;
 }
 
 /* Define o tamanho e a a cor do texto na caixa de seleção */
 .checkbox label {
   font-size: 12px;
+  font-weight: bold;
   cursor: pointer;
   user-select: none;
-  color: #0b0217;
+  color: #fff4c2;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 
 /* Define a cor do hover no texto da caixa de seleção */
 .checkbox label:hover {
-  color: #ff531e;
-}
-
-/* Define a cor do texto na caixa de seleção ativa */
-input[type='checkbox']:checked + label {
-  color: #ff531e;
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+  text-decoration: underline;
 }
 
 /* -------------------------------------------- Botão de Login e Cadastro --------------------------------------------- */
 /* Cor e tamanho do botão de login e cadastro */
 .form_container .sgn_button,
 .lgn_button {
-  background: #ff531e;
+  background-color: rgba(192, 203, 2, 0.3);
   margin-top: 30px;
   width: 100%;
   padding: 10px 0;
-  border-radius: 10px;
+  border-radius: 0.3em;
   color: #fff4c2;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s, transform 0.3s ease, text-shadow 0.2s ease-in-out;
+}
+
+.form_container .sgn_button:hover,
+.lgn_button:hover {
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 0.3em;
+  background-color: rgba(192, 203, 2, 0.3);
+  border: 2px solid #c0cb02;
+  color: #335230;
+  box-shadow: 0 0 25px 2px rgba(192, 203, 2, 0.4), 0 0 35px 4px rgba(192, 203, 2, 0.5), 0 0 45px 6px rgba(192, 203, 2);
+  transform: scale(1.05) translateY(-5px);
+  color: #fff4c2;
+  cursor: pointer;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 /* Efeito de clique do botão de login e cadastro */
 .form_container .sgn_button:active,
 .lgn_button:active {
-  background-color: #ff531e;
+  text-shadow: none;
+  background-color: rgba(51, 82, 48, 0.3);
   color: #fff4c2;
   box-shadow: #000000 0 3px 7px inset;
   transform: translateY(2px);
@@ -371,6 +386,8 @@ input[type='checkbox']:checked + label {
 
 /* Estilo do texto "Não possui uma conta?" */
 .login_signup {
+  font-weight: bold;
+  color: #fff4c2;
   font-size: 12px;
   text-align: center;
   margin-top: 15px;
@@ -443,7 +460,7 @@ input[type='checkbox']:checked + label {
   position: absolute;
   top: 10px;
   right: 15px;
-  color: #ff531e;
+  color: #fff4c2;
   font-size: 20px;
   opacity: 0.7;
   cursor: pointer;
@@ -459,6 +476,9 @@ input[type='checkbox']:checked + label {
 
 /* Tamanho da caixa de texto */
 .volun_input_box input {
+  background-color: transparent;
+  font-weight: bolder;
+  color: #fff4c2;
   margin-top: 5px;
   height: 80%;
   width: 100%;
@@ -466,39 +486,22 @@ input[type='checkbox']:checked + label {
   outline-color: #ff531e;
   padding: 0 30px;
   transition: all 0.2s ease;
-  border: 2px solid #C0CB02;
-  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
-  rgba(192, 203, 2, 0.25) 0 1px 2px,
-  rgba(192, 203, 2, 0.25) 0 2px 4px,
-  rgba(192, 203, 2, 0.25) 0 4px 8px,
-  rgba(192, 203, 2, 0.25) 0 8px 16px,
-  rgba(192, 203, 2, 0.25) 0 16px 32px;
+  border: 2px solid rgba(192, 203, 2);
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset, rgba(192, 203, 2, 0.25) 0 1px 2px, rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px, rgba(192, 203, 2, 0.25) 0 8px 16px, rgba(192, 203, 2, 0.25) 0 16px 32px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 30px;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+  border: 2px solid rgba(192, 203, 2);
 }
 
-
-/* Estilo da caixa de texto ativa */
-.volun_input_box input:focus {
-  color: #212529;
-}
-.volun_input_box input[type='email']:focus::-webkit-input-placeholder,
-.volun_input_box input[type='text']:focus::-webkit-input-placeholder,
-.volun_input_box input[type='tel']:focus::-webkit-input-placeholder {
-  color: #212529;
-}
-.volun_input_box input[type='email']:focus::-moz-placeholder,
-.volun_input_box input[type='text']:focus::-moz-placeholder,
-.volun_input_box input[type='tel']:focus::-moz-placeholder {
-  color: #212529;
-}
-.volun_input_box input[type='email']:focus:-ms-input-placeholder,
-.volun_input_box input[type='text']:focus:-ms-input-placeholder,
-.volun_input_box input[type='tel']:focus:-ms-input-placeholder {
-  color: #212529;
-}
-.volun_input_box input[type='email']:focus::placeholder,
-.volun_input_box input[type='text']:focus::placeholder,
-.volun_input_box input[type='tel']:focus::placeholder {
-  color: #212529;
+/* Estilo do placeholder */
+.volun_input_box input::placeholder {
+  color: #fff4c2; /* Altere a cor para a cor desejada */
 }
 
 /* ---------------------------------------------- QR Code para donativos ---------------------------------------------- */
@@ -590,7 +593,7 @@ input[type='checkbox']:checked + label {
   max-width: 100%;
   width: 250px;
   height: auto;
-  border: 5px solid #C0CB02;
+  border: 5px solid #c0cb02;
   border-radius: 20px;
 }
 
@@ -604,7 +607,7 @@ main {
 /* ------------------------------------------------------ Banner ------------------------------------------------------ */
 /* Estilo da imagem */
 .section.parallax {
-  background-image: url('https://images.unsplash.com/photo-1530836176759-510f58baebf4');
+  background-image: url(../img/sementes.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -627,6 +630,7 @@ main {
   background-color: rgba(192, 203, 2, 0.7);
   width: max-content;
   z-index: -1;
+  border-radius: 0.1em;
 }
 
 /* Estilo do parágrafo */
@@ -638,6 +642,7 @@ main {
   background-color: rgba(192, 203, 2, 0.7);
   width: max-content;
   z-index: -1;
+  border-radius: 0.3em;
 }
 
 /* Estilo do nome do autor */
@@ -650,6 +655,7 @@ main {
   background-color: rgba(192, 203, 2, 0.7);
   width: max-content;
   z-index: -1;
+  border-radius: 0.2em;
 }
 
 /* ----------------------------------------------------- Sessão 2 ----------------------------------------------------- */
@@ -671,6 +677,7 @@ main {
   color: #212529;
   background-color: #c0cb02;
   z-index: -1;
+  border-radius: 0.3em;
 }
 
 /* Estilo do texto e background */
@@ -710,10 +717,22 @@ ol li:before {
   transition: all 0.3s ease-out;
 }
 
-/* ------------------------------------------------------ Cartões ----------------------------------------------------- */
+/* ----------------------------------------- Cartões de voluntário e donativos ---------------------------------------- */
 /* Adiciona um espaço entre o cartão e o footer */
 .card-group {
   margin: 2% 8% 8% 7%;
+  background-color: transparent;
+}
+
+/* Background do cartão de voluntário e donativos */
+.card.mb-0 {
+  background-color: rgba(192, 203, 2, 0.1);
+  border: 5px solid #c0cb02;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.4s ease-out;
 }
 
 /* Estilo da imagem */
@@ -727,59 +746,59 @@ ol li:before {
   background-size: 40%;
 }
 
+/* Borda da imagem */
+.my-card {
+  background-color: #c0cb02;
+  padding: 0;
+  margin: 0;
+}
+
 /* Ajuste para telas menores usando media queries */
 @media (max-width: 768px) {
   .card.parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 150vw;
-  height: 60vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 150vw;
+    height: 60vw;
   }
 }
 
 /* Aplicar estilos quando a largura da tela está entre 600 e 800 pixels */
 @media (min-width: 600px) and (max-width: 800px) {
   .card.parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 150vw;
-  height: 60vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 150vw;
+    height: 60vw;
   }
 }
 
 /* Aplicar estilos quando a altura da tela está entre 400 e 600 pixels */
 @media (min-height: 400px) and (max-height: 600px) {
   .card.parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 150vw;
-  height: 60vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 150vw;
+    height: 60vw;
   }
 }
 
 /* Aplicar estilos em dispositivos com resolução de pelo menos 300dpi */
 @media (min-resolution: 300dpi) {
   .card.parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 150vw;
-  height: 60vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 150vw;
+    height: 60vw;
   }
-}
-
-/* Estilo */
-.card {
-  text-align: left;
-  border: none;
-  background-color: #c0cb02;
 }
 
 /* Título */
@@ -804,28 +823,35 @@ ol li:before {
 /* Estilo do botão */
 #volun_form_open,
 #don_form_open {
-  background-color: #ff531e;
+  background-color: rgba(192, 203, 2, 0.7);
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 0.3em;
+  color: #212529;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s, transform 0.3s ease, text-shadow 0.2s ease-in-out;
   text-decoration: none;
-  font-size: 90%;
-  list-style: none; /* Remover o marcador de lista padrão */
-  margin: 0 20px 0 10px;
-  color: #fff4c2;
-  border-radius: 20px;
-  padding: 6px 15px;
-  font-weight: bold;
-  text-align: center;
-  transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 5px rgba(255, 67, 33, 0);
+  font-weight: bolder;
 }
 
 /* Hover do botão */
 #volun_form_open:hover,
 #don_form_open:hover {
-  background-color: #fff4c2;
-  color: #ff531e;
-  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6),
-    0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
-  transform: scale(1.05) translateY(2px);
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border: 2px solid #c0cb02;
+  box-shadow: 0 0 25px 2px rgba(192, 203, 2, 0.4), 0 0 35px 4px rgba(192, 203, 2, 0.5), 0 0 45px 6px rgba(192, 203, 2);
+  transform: scale(1.05) translateY(-5px);
+  color: #fff4c2;
+  cursor: pointer;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  border-radius: 0.3em;
+  background-color: rgba(192, 203, 2, 0.7);
 }
 
 /* Efeito de clique do botão */
@@ -840,29 +866,40 @@ ol li:before {
 /* ---------------------------------- Botão "Confirmar" do cadastro do voluntário" ------------------------------------ */
 /* Cor e tamanho do botão */
 .volun_button {
-  transition: all 0.1s ease-out;
-  border: 1px solid #c0cb02;
-  overflow: auto;
-  background-color: #C0CB02;
-  box-shadow:
-  0 0 25px 2px rgba(192, 203, 2, 0.4),
-  0 0 35px 4px rgba(192, 203, 2, 0.5),
-  0 0 45px 6px rgba(192,203,2);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(192, 203, 2, 0.3);
   margin-top: 30px;
   width: 100%;
   padding: 10px 0;
-  border: 1px solid #c0cb02;
-  border-radius: 10px;
-  color: #212529;
+  border-radius: 0.3em;
+  color: #fff4c2;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.5s ease-in-out, transform 0.3s ease-in-out;
   font-weight: bold;
+}
+
+.volun_button:hover {
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 0.3em;
+  background-color: rgba(192, 203, 2, 0.3);
+  border: 2px solid #c0cb02;
+  color: #335230;
+  box-shadow: 0 0 25px 2px rgba(192, 203, 2, 0.4), 0 0 35px 4px rgba(192, 203, 2, 0.5), 0 0 45px 6px rgba(192, 203, 2);
+  transform: scale(1.05) translateY(-1px);
+  color: #fff4c2;
+  cursor: pointer;
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 /* Efeito de clique do botão */
 .volun_button:active {
-  background-color: rgba(192, 203, 2, 0.3);
-  color: #212529;
+  text-shadow: none;
+  background-color: rgba(51, 82, 48, 0.3);
+  color: #fff4c2;
   box-shadow: #000000 0 3px 7px inset;
   transform: translateY(2px);
 }
@@ -870,12 +907,19 @@ ol li:before {
 /* --------------------------------------------- Estilo do Rodapé (Footer) -------------------------------------------- */
 /* Propriedades */
 footer {
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 25px;
+  border-radius: 0.3em;
+  border-top: 3px solid #c0cb02;
+  box-shadow: rgba(0, 0, 0, 0.1);
   padding: 20px 0;
   font-size: 1.4vw;
   font-weight: bold;
-  color: #fff4c2;
+  color: #335230;
   text-align: center;
-  background: #335230;
   width: 100%;
   z-index: 1; /* Coloca o rodapé na frente de outros elementos */
 }
@@ -887,11 +931,12 @@ footer p {
 
 /* Estilo do Link */
 footer a {
-  color: #fff4c2;
+  color: #335230;
   text-decoration: none;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 /* Estilo do Link */
 footer a:hover {
-  color: #C0CB02;
   text-decoration: underline;
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
 }
