@@ -98,15 +98,22 @@
 
 /* Ícone do menu hambúrguer */
 .navbar-toggler .fa-bars {
-  font-size: 4vw;
-  border-color: #fff4c2;
-  color: #fff4c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  color: #335230;
+  padding-top: 2px;
 }
 
 /* Borda do menu hambúrguer */
 .navbar-toggler {
-  border-color: #fff4c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: #335230;
   border-width: 0.5vw;
+  width: 9vw;
 }
 
 /* Define a altura da barra de navegação */
@@ -462,30 +469,42 @@ body {
   font-weight: bolder;
   display: flex;
   align-items: center;
+  width: 100%;
+  height: auto;
 }
 
 /* Organização da tela de video e lista */
-.container {
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 50vw 35vw;
-  gap: 1rem;
-  padding: 0.5rem 1rem;
-  
+.video-container {
+  max-width: 100%;
+  margin: 0 auto; /* Isso centralizará o contêiner horizontalmente */
+}
+
+.page-content {
+width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 3.5rem;
 }
 
 @media screen and (max-width: 990px) {
-  .container {
-  grid-template-columns: 1fr;
+  .page-content {
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
   }
 }
 
-
 .main-video,
 .video-playlist {
-  margin-top: calc(var(--navbar-height) + 100px);
+  margin-top: calc(var(--navbar-height) + 2vw);
   width: 100%;
-  height: 30rem;
+  height: auto; /* A altura se ajustará automaticamente à largura */
+}
+
+.main-video video {
+  width: 100%; /* O vídeo ocupará toda a largura do contêiner pai */
 }
 
 .main-video .title-main {
@@ -497,6 +516,7 @@ body {
   font-weight: 600;
   font-size: 3vw;
   padding-left: 1rem;
+  width: 100%;
 }
 
 #info {
@@ -619,4 +639,24 @@ footer a {
 footer a:hover {
   text-decoration: underline;
   text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+}
+
+/* ------------------------------------------- Responsividade navbar e footer ----------------------------------------- */
+/* Media query para telas menores */
+@media (min-width: 1px) and (max-width: 1200px)  {
+  /* Estilizando os links dos itens do menu */
+  .navbar-nav li a {
+    font-size: 1.2vw;
+    margin: 0 10px 0 5px;
+    padding: 6px 15px;
+  }
+  .cont_container {
+    margin-top: 450px;
+  }
+  footer p {
+    font-size: 100%;
+  }
+  footer a {
+    font-size: 100%;
+  }
 }

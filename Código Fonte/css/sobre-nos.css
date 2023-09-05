@@ -98,15 +98,22 @@
 
 /* Ícone do menu hambúrguer */
 .navbar-toggler .fa-bars {
-  font-size: 4vw;
-  border-color: #fff4c2;
-  color: #fff4c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  color: #335230;
+  padding-top: 2px;
 }
 
 /* Borda do menu hambúrguer */
 .navbar-toggler {
-  border-color: #fff4c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: #335230;
   border-width: 0.5vw;
+  width: 9vw;
 }
 
 /* Define a altura da barra de navegação */
@@ -443,8 +450,8 @@ main {
   z-index: -1;
 }
 
-/* ------------------------------------------------- Ações e projetos ------------------------------------------------- */
-/* Estilo para a sessão dos cartões */
+/* ----------------------------------------------- Sessão "Quem Somos"  ----------------------------------------------- */
+/* Estilo da sessão "Quem Somos" */
 .custom-section {
   color: #212529;
   background-color: #fff4c2;
@@ -460,153 +467,165 @@ main {
 
 /* Parágrafo */
 .row p {
-  padding-top: 220px;
+  padding-top: 170px;
+  font-family: 'roboto';
   font-size: 1.5vw;
   text-align: left;
 }
 
-/* Transparência dos cartões */
-.card {
-  background-color: rgba(192, 203, 2, 0.3);
-  border-radius: 20px;
-  border: 2px solid;
-  border-color: #C0CB02;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px);
+
+/* ------------------------------------------ INICIO NOSSOS VALORES/EQUIPE  ------------------------------------------- */
+/* Estilo da sessão de valores */
+#valores {
+  margin-bottom: -5%;
 }
 
 /* Título */
-.card-header {
+#valores h2 {
+  margin: 5% 0 0 6.5%;
+  padding: 0.4%;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 5vw;
+  color: #C0CB02;
+}
+
+/* -------------------------------------------------- Lista de valores ------------------------------------------------ */
+.text-left {
+  padding: 4%;
+  font-size: 20px;
+  font-family: 'roboto';
+  color: #335230;
+  text-align: left;
+}
+
+/* Valor inicial do contador */
+ol {
+  counter-reset: li;
+}
+/* Estilo do texto e background */
+ol li {
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 2em;
+  margin: 0.5em 0;
+  background: #c0cb02;
   color: #212529;
-  font-size: 2vw;
-  font-weight: bold;
-  margin: 15px;
-  text-align: center;
-  border: 2px solid;
-  border-color: #C0CB02;
-  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
-    rgba(192, 203, 2, 0.25) 0 1px 2px,
-    rgba(192, 203, 2, 0.25) 0 2px 4px,
-    rgba(192, 203, 2, 0.25) 0 4px 8px,
-    rgba(192, 203, 2, 0.25) 0 8px 16px,
-    rgba(192, 203, 2, 0.25) 0 16px 32px;
+  text-decoration: none;
+  border-radius: 0.3em;
+  transition: all 0.3s ease-out;
 }
 
-/* Parágrafo */
-.card-text {
+/* Estilo do hover */
+ol li:hover {
+  background: #eaff00;
+  cursor: default;
+}
+
+/* Estilo da numeração */
+ol li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #212529;
+  color: #c0cb02;
+  height: 2em;
+  width: 2em;
+  border: 0.3em solid #fff;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  transition: all 0.3s ease-out;
+}
+
+/* --------------------------------------------------- Nossa Equipe --------------------------------------------------- */
+/* Título */
+#equipe h2 {
+  margin: 5% 0 5% 6.5%;
+  padding: 0.4%;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 5vw;
+  color: #C0CB02;
+}
+
+/* Título */
+#equipe p {
+  margin: 1% 7.5% 0 6.5%;
+  padding: 0.4%;
+  font-family: 'roboto';
+  font-weight: 600;
   color: #212529;
-  font-weight: bold;
+  background-color: #c0cb02;
+  z-index: -1;
+  border-radius: 0.3em;
 }
-
-/* Estilo para o container de imagem */
-.img-container {
-  display: flex;
-  justify-content: center;
-  padding: 15px;
-}
-
-/* Estilo para a imagem dos cartões */
-.card-img-top {
-  border-radius: 20px;
-  border: 2px solid;
-  border-color: #C0CB02;
-  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
-    rgba(192, 203, 2, 0.25) 0 1px 2px,
-    rgba(192, 203, 2, 0.25) 0 2px 4px,
-    rgba(192, 203, 2, 0.25) 0 4px 8px,
-    rgba(192, 203, 2, 0.25) 0 8px 16px,
-    rgba(192, 203, 2, 0.25) 0 16px 32px;
-}
-
-.col-md-4 {
-  padding-bottom: 2%;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.fixed-height {
-  height: 100%
-}
-
-
-/* --------------------------------------------- INICIO NOSSOS VALORES/EQUIPE  -------------------------------------------- */
-
-
-/* INICIO NOSSA EQUIPE*/
-.equipe-container h2 {
-  display: flex;
-  background-color: rgb(15, 40, 17);
-  border-radius: 5px 10px;
-  margin: 0 10% 0 15%;
-
-}
-
-.equipe-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-
-
-}
-
-.membro-equipe {
-  width: calc(20% - 10px);
-  /* Para ocupar 25% do espaço e adicionar um espaçamento entre as imagens */
-  margin-bottom: 5px;
-  text-align: center;
-  transition: transform 0.9s ease-in-out;
-
-
-}
-
-.membro-equipe img {
-  max-width: 50%;
-  height: auto;
-}
-
-.membro-equipe h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  /* Adiciona um espaçamento entre a imagem e o nome */
-}
-
-.membro-equipe:hover {
-  transform: scale(1.14);
-  /* Aumenta a escala da imagem em 5% ao passar o mouse */
-
-}
-
 /* FIM NOSSA EQUIPE*/
 
+/* ------------------------------------------------ INICIO CARD EQUIPE ------------------------------------------------ */
+/* Posição e estilo dos nomes da equipe */
+.heading {
+  padding: 5px;
+  font-size: 18px;
+  margin-top: -80%;
+  font-family: 'roboto';
+  font-weight: bold;
+  color: #212529;
+  text-shadow: 0 0 10px rgba(192, 203, 2, 1), 0 0 20px rgba(192, 203, 2, 1), 0 0 100px rgba(192, 203, 2, 1);
+  background-color: rgba(192, 203, 2, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px) ;
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 0.3em;
+}
 
-/*--------------------------------  INICIO CARD EQUIPE---------------------------------------------*/
+/* Posição da barra de links */
+.icones {
+  margin-top: 110%;
+  transform: translate(0, 25px);
+}
+
+/* Ícones dos cards da equipe */
+#equipe .custom-icon {
+  font-size: 180%;
+  margin: 1% 3% 0% 3%;
+  padding: 0.4%;
+  color: #212529;
+  cursor: pointer;
+  transition: transform 0.2s ease-in, filter 0.2s ease-in;
+}
+
+ /* Hover dos ícones */
+#equipe .custom-icon:hover {
+  transform: scale(1.5);
+  filter: drop-shadow(0 0 5px rgba(192, 203, 2, 1)) drop-shadow(0 0 10px rgba(192, 203, 2, 1)) drop-shadow(0 0 15px rgba(192, 203, 2, 1));
+}
+
+/* Remove o sublinhado dos ícones */
+a {
+  text-decoration: none;
+}
+
+/* Container dos cards do "Nossa Equipe" */
 .card-container {
   display: flex;
   justify-content: space-between;
-  /* Isso irá espaçar os cards igualmente na linha */
   align-items: center;
-  /* Isso alinhará verticalmente os cards ao centro */
   flex-wrap: wrap;
-  /* Isso permitirá que os cards quebrem para a próxima linha se não couberem na largura */
   margin: 60px;
-
 }
 
+/* Estilo dos cartões do "Nossa Equipe" */
 .card {
+  margin-bottom: 20px;
   max-width: 300px;
-  /* Define o tamanho máximo que você deseja para os cards */
-
-  width: 200px;
-  height: 250px;
+  width: 250px;
+  height: 350px;
   background: #07182E;
-  border-radius: 5px;
+  border-radius: 1em;
   text-align: center;
   color: #f0f0f0;
   overflow: hidden;
@@ -616,18 +635,22 @@ main {
   background-position: center;
   padding: 2rem 1.5rem;
   transition: box-shadow .3s ease, transform .2s ease;
-  background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-
 }
 
-
-.img-container:hover img {
-  transform: scale(1.5);
+.card:nth-child(1) {
+  background-image: url('../img/Jenna.jpg');
 }
 
-/* Remove o sublinhado de todos os links */
-a {
-  text-decoration: none;
+.card:nth-child(2) {
+  background-image: url('../img/Grog.jpg');
+}
+
+.card:nth-child(3) {
+  background-image: url('../img/Nathan.jpg');
+}
+
+.card:nth-child(4) {
+  background-image: url('../img/Jão.jpg');
 }
 
 /* Ou, se desejar remover o sublinhado apenas de links específicos com uma classe ou ID: */
@@ -639,7 +662,7 @@ a {
   text-decoration: none;
 }
 
-
+/* Estilo da imagem de fundo */
 .img {
   display: flex;
   margin: 60px auto 10px auto;
@@ -650,35 +673,12 @@ a {
   align-items: center;
   transition: all 0.5s;
   z-index: 99;
-
-
-}
-
-.icones p {
-  opacity: -1;
-  transition: all 0.5s;
-
-}
-
-.heading {
-  padding: 10px;
-  font-weight: 500;
-  font-size: 18px;
-
-}
-
-svg {
-  padding: 0 3px;
-  cursor: pointer;
-
-
 }
 
 
 .card:hover h1,
 .card:hover p {
   opacity: 1.5;
-
 }
 
 
@@ -717,4 +717,24 @@ footer a {
 footer a:hover {
   text-decoration: underline;
   text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+}
+
+/* ------------------------------------------- Responsividade navbar e footer ----------------------------------------- */
+/* Media query para telas menores */
+@media (min-width: 1px) and (max-width: 1200px)  {
+  /* Estilizando os links dos itens do menu */
+  .navbar-nav li a {
+    font-size: 1.2vw;
+    margin: 0 10px 0 5px;
+    padding: 6px 15px;
+  }
+  .cont_container {
+    margin-top: 450px;
+  }
+  footer p {
+    font-size: 100%;
+  }
+  footer a {
+    font-size: 100%;
+  }
 }
