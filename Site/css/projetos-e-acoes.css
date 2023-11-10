@@ -1,0 +1,638 @@
+/*Link fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&display=swap');
+
+/* Estilos gerais */
+* {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'roboto';
+}
+
+/* Estilo do Header */
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+/* Container do cabeçalho de navegação */
+.navbar {
+  z-index: 2;
+  padding: 1% 3% 0 3%;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 0.3em;
+  border-bottom: 3px solid #c0cb02;
+  box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilizando a logotipo do menu */
+.navbar-brand img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 15%;
+  filter: drop-shadow(-1px 0 #755026) drop-shadow(0 1px #755026) drop-shadow(1px 0 #755026) drop-shadow(0 -1px #755026);
+  transition: background 0.5s, color 0.5s, box-shadow 0.3s, transform 0.3s ease, text-shadow 0.2s ease-in-out;
+}
+
+/* Efeito do hover na imagem */
+.navbar-brand img:hover {
+  filter: drop-shadow(-1px 0 #755026) drop-shadow(0 1px #755026) drop-shadow(1px 0 #755026) drop-shadow(0 -1px #755026)
+    drop-shadow(0 0 10px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 10px rgba(192, 203, 2, 0.6));
+  transform: scale(1.1) translateY(-5px);
+}
+
+/* Estilizando cada item do menu no menu hambúrguer */
+.navbar-nav li {
+  display: block; /* Para que cada item fique em uma linha separada */
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+/* Estilizando os links dos itens do menu */
+.navbar-nav li a {
+  color: #fff4c2;
+  text-shadow: -1.5px 0 #755026, 0 1.5px #755026, 1.5px 0 #755026, 0 -1.5px #755026;
+  padding: 10px;
+  border-radius: 0.3em;
+  font-size: 1.3vw;
+  list-style: none; /* Remover o marcador de lista padrão */
+  margin: 0 20px 0 10px;
+  border-radius: 0.3em;
+  padding: 6px 15px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(255, 67, 33, 0);
+  transition: background 0.5s, color 0.5s, border-color 0.5s, box-shadow 0.3s, transform 0.3s ease, text-shadow 0.2s ease-in-out;
+}
+
+/* Estilizando o hover nos links dos itens do menu */
+.navbar-nav li a:not(.active):hover {
+  background: rgba(192, 203, 2, 0.8); /* Fundo semi-transparente */
+  text-shadow: -1px 0 #fff4c2, 0 1px #fff4c2, 1px 0 #fff4c2, 0 -1px #fff4c2;
+  color: #755026;
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.6), 0 0 20px rgba(192, 203, 2, 0.6), 0 0 100px rgba(192, 203, 2, 0.6);
+  transform: scale(1.05) translateY(-5px);
+}
+
+/* Cor da guia ativa */
+.navbar .navbar-nav li a.active {
+  background: rgba(192, 203, 2, 0.8); /* Fundo semi-transparente */
+  text-shadow: -1px 0 #fff4c2, 0 1px #fff4c2, 1px 0 #fff4c2, 0 -1px #fff4c2;
+  color: #755026;
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.6), 0 0 20px rgba(192, 203, 2, 0.6), 0 0 100px rgba(192, 203, 2, 0.6);
+  transform: scale(1.05) translateY(-5px);
+}
+
+/* Aumenta o tamanho da fonte dos links do menu quando o menu hamburguer está aberto */
+@media (max-width: 992px) {
+  .navbar-collapse .nav-link {
+    font-size: 1.5em;
+    color: #fff4c2;
+  }
+}
+
+/* Ícones dos nav-links */
+.nav-item .fa-solid {
+  margin-right: 5px;
+  font-size: 100%;
+}
+
+/* -------------------------------- Escurece o fundo quando o menu hamburguer é aberto -------------------------------- */
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+/* --------------------------------------------------- Menu Hambúrguer ------------------------------------------------ */
+
+/* Ícone do menu hambúrguer */
+.navbar-toggler .fa-bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: #fff4c2;
+  padding-top: 2px;
+}
+.navbar-toggler {
+  text-shadow: -1px -1px 0 #755026, 1px -1px 0 #755026, -1px 1px 0 #755026, 1px 1px 0 #755026;
+}
+
+/* Borda do menu hambúrguer */
+.navbar-toggler {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  border: 3px solid #755026; /* cor externa da borda */
+  box-shadow: inset 0 0 0 3px #fff4c2; /* cor interna da borda */
+  border-radius: 10px; /* arredondamento da borda externa */
+  background-clip: padding-box; /* para evitar que o fundo se estenda até a margem */
+}
+
+/* Define a altura da barra de navegação */
+:root {
+  --navbar-height: 80px; /* Defina a altura da barra de navegação aqui */
+}
+
+/* ------------------------------------------------------ Home -------------------------------------------------------- */
+/* Tamanho e cor da área do conteúdo da página */
+.home {
+  position: relative;
+  width: 100%;
+  background-color: #fff4c2;
+}
+
+/* Esconder Menu de Login/Cadastro */
+.home::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+}
+
+/* Mostrar Menu de Login/Cadastro */
+.home.show::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------------------------------------Formulário de login e cadastro----------------------------------------------- */
+/* From */
+.form_container {
+  position: fixed;
+  max-width: 320px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 101;
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 25px;
+  border-radius: 0.3em;
+  border: 3px solid #c0cb02;
+  box-shadow: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+  overflow: auto;
+}
+
+/* Abre o formulário de login */
+.home.show .form_container {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Oculta o formulário de inscrição por padrão */
+.signup_form {
+  display: none;
+}
+
+/* Exibe o formulário de inscrição quando o elemento form_container tem a classe active */
+.form_container.active .signup_form {
+  display: block;
+}
+
+/* Oculta o formulário de login quando o elemento form_container tem a classe active */
+.form_container.active .login_form {
+  display: none;
+}
+
+/* Estilo do ícone "Fechar" */
+.form_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #fff4c2;
+  font-size: 20px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.form_close:hover:before {
+  color: #fff4c2;
+  text-shadow: 0 0 1px #ff531e, 0 0 2px #ff531e, 0 0 3px #ff531e, 0 0 4px #ff531e, 0 0 5px #ff531e, 0 0 10px #ff531e, 0 0 15px #ff531e, 0 0 20px #ff531e, 0 0 100px #ff531e;
+}
+
+/* Título do formulário */
+.form_container h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 150%;
+  color: #fff4c2;
+  text-align: center;
+}
+
+/* -------------------------------------------------- Caixa de Texto -------------------------------------------------- */
+/* Tamanho do container da caixa de texto */
+.input_box {
+  border-color: #fff4c2;
+  outline-color: #ff531e;
+  border: 2px solid rgba(192, 203, 2);
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset, rgba(192, 203, 2, 0.25) 0 1px 2px, rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px, rgba(192, 203, 2, 0.25) 0 8px 16px, rgba(192, 203, 2, 0.25) 0 16px 32px;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+  border: 2px solid rgba(192, 203, 2);
+  background-color: transparent;
+  color: #fff4c2;
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+}
+
+/* Tamanho da caixa de texto */
+.input_box input {
+  font-weight: bold;
+  color: #fff4c2;
+  background-color: transparent;
+  height: 80%;
+  width: 100%;
+  padding: 0 30px;
+  transition: all 0.2s ease;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset, rgba(192, 203, 2, 0.25) 0 1px 2px, rgba(192, 203, 2, 0.25) 0 2px 4px,
+    rgba(192, 203, 2, 0.25) 0 4px 8px, rgba(192, 203, 2, 0.25) 0 8px 16px, rgba(192, 203, 2, 0.25) 0 16px 32px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 30px;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+}
+
+/* Posiciona os ícones dentro da caixa de texto e define suas propriedades de estilo */
+.input_box i {
+  padding: 0 2% 0 2%;
+  position: absolute;
+  top: 35%;
+  transform: translateY(-20%);
+  font-size: 20px;
+  color: #fff4c2;
+}
+
+/* Define a posição e o tamanho dos ícones de e-mail e senha */
+.input_box i.email,
+.input_box i.password {
+  left: 0;
+  font-size: 15px;
+}
+
+/* Define a posição e o tamanho do ícone de ocultar e mostrar a senha */
+.input_box i.pw_hide {
+  right: 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Remove o botão para visualizar e ocultar a senha */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+/* Estilo do placeholder */
+.input_box input::placeholder {
+  color: #fff4c2;
+}
+
+/* Define a posição e o tamanho do campo de opções */
+.option_field {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Define a cor e tamanho do texto no campo de opções */
+.form_container a {
+  color: #fff4c2;
+  font-size: 1vw;
+  text-decoration: none;
+  font-weight: bold;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+
+/* Define o estilo do hover no campo de opções */
+.form_container a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+}
+
+/* Define o estilo da caixa de seleção */
+.checkbox {
+  display: flex;
+  column-gap: 8px;
+  white-space: nowrap;
+}
+
+.checkbox input:hover {
+  box-shadow: 0 0 10px rgba(255, 83, 30, 1);
+}
+
+/* ------------------------------------------------- Caixa de Seleção ------------------------------------------------- */
+/* Define a cor da caixa de seleção ativa */
+.checkbox input {
+  accent-color: #fff4c2;
+}
+
+/* Define o tamanho e a a cor do texto na caixa de seleção */
+.checkbox label {
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  color: #fff4c2;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+
+/* Define a cor do hover no texto da caixa de seleção */
+.checkbox label:hover {
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+  text-decoration: underline;
+}
+
+#forgot_custom {
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* -------------------------------------------- Botão de Login e Cadastro --------------------------------------------- */
+/* Cor e tamanho do botão de login e cadastro */
+.form_container .sgn_button,
+.lgn_button {
+  background-color: rgba(192, 203, 2, 0.3);
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 0.3em;
+  color: #fff4c2;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s, transform 0.3s ease, text-shadow 0.2s ease-in-out;
+}
+
+.form_container .sgn_button:hover,
+.lgn_button:hover {
+  text-shadow: 0 0 10px rgba(255, 83, 30, 1), 0 0 20px rgba(255, 83, 30, 1), 0 0 100px rgba(255, 83, 30, 1);
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 0.3em;
+  background-color: rgba(192, 203, 2, 0.3);
+  border: 2px solid #c0cb02;
+  color: #335230;
+  box-shadow: 0 0 25px 2px rgba(192, 203, 2, 0.4), 0 0 35px 4px rgba(192, 203, 2, 0.5), 0 0 45px 6px rgba(192, 203, 2);
+  transform: scale(1.05) translateY(-5px);
+  color: #fff4c2;
+  cursor: pointer;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+/* Efeito de clique do botão de login e cadastro */
+.form_container .sgn_button:active,
+.lgn_button:active {
+  text-shadow: none;
+  background-color: rgba(51, 82, 48, 0.3);
+  color: #fff4c2;
+  box-shadow: #000000 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* Estilo do texto "Não possui uma conta?" */
+.login_signup {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff4c2;
+  text-align: center;
+  margin-top: 15px;
+}
+
+#signup,
+#login {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ------------------------------------------------ Conteúdo da página ------------------------------------------------ */
+/* Estilo do Conteúdo da página */
+main {
+  position: relative;
+  z-index: 0;
+}
+
+/* ------------------------------------------------------ Banner ------------------------------------------------------ */
+/* Estilo da imagem */
+.section.parallax {
+  background-image: url('https://images.pexels.com/photos/6510867/pexels-photo-6510867.jpeg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - var(--navbar-height)); /* Altura total da viewport - altura da barra de navegação */
+  /* margin-top: var(--navbar-height); /* Espaçamento no topo igual à altura da barra de navegação */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo do título */
+.section h2 {
+  padding: 0.4%;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  color: #212529;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+/* Estilo do parágrafo */
+.section p {
+  padding: 0.2%;
+  margin:0.5%;
+  font-family: 'roboto';
+  color: #212529;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+/* ------------------------------------------------- Ações e projetos ------------------------------------------------- */
+/* Estilo para a sessão dos cartões */
+.custom-section {
+  color: #212529;
+  background-color: #fff4c2;
+}
+
+/* Título */
+.custom-section h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 5vw;
+  color: #C0CB02;
+}
+
+/* Parágrafo */
+.row p {
+  padding: 0 15% 10% 5%;
+  font-size: 1.5vw;
+  text-align: left;
+}
+
+/* Transparência dos cartões */
+.card {
+  background-color: rgba(192, 203, 2, 0.3);
+  border-radius: 20px;
+  border: 2px solid;
+  border-color: #C0CB02;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Título */
+.card-header {
+  font-family: 'Fraunces', serif;
+  font-weight: bold;
+  font-size: 150%;
+  color: #212529;
+  font-weight: bold;
+  margin: 15px;
+  text-align: center;
+  border: 2px solid;
+  border-color: #C0CB02;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
+  rgba(192, 203, 2, 0.25) 0 1px 2px,
+  rgba(192, 203, 2, 0.25) 0 2px 4px,
+  rgba(192, 203, 2, 0.25) 0 4px 8px,
+  rgba(192, 203, 2, 0.25) 0 8px 16px,
+  rgba(192, 203, 2, 0.25) 0 16px 32px;
+}
+
+/* Parágrafo */
+.card-text {
+  color: #212529;
+  font-weight: bold;
+}
+
+/* Estilo para o container de imagem */
+.img-container {
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  border-radius: 20px;
+  border: 2px solid;
+  border-color: #C0CB02;
+  overflow: hidden;
+}
+
+/* Propriedades para o hover */
+.img-container img {
+  object-fit: cover;
+  transition: transform 1.2s ease, box-shadow 1.2s ease;
+  height: 100%;
+}
+
+/* Hover da borda imagem */
+.img-container:hover {
+  box-shadow: 0 0 25px 2px rgba(255, 83, 30, 0.4);
+}
+
+/* Hover da imagem */
+.img-container:hover img {
+  transform: scale(1.5);
+}
+
+/* Estilo para a imagem dos cartões */
+.card-img-top {
+  border-radius: 20px;
+  border: 2px solid;
+  border-color: #C0CB02;
+  box-shadow: rgba(192, 203, 2, 0.5) 0 -25px 18px -14px inset,
+  rgba(192, 203, 2, 0.25) 0 1px 2px,
+  rgba(192, 203, 2, 0.25) 0 2px 4px,
+  rgba(192, 203, 2, 0.25) 0 4px 8px,
+  rgba(192, 203, 2, 0.25) 0 8px 16px,
+  rgba(192, 203, 2, 0.25) 0 16px 32px;
+}
+
+.col-md-4 {
+  padding-bottom: 2%;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fixed-height {
+  height: 100%
+}
+
+/* --------------------------------------------- Estilo do Rodapé (Footer) -------------------------------------------- */
+/* Propriedades */
+.custom-footer {
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 3px solid #c0cb02;
+  color: #335230;
+  font-weight: bold;
+  z-index: 2;
+  padding: 1% 0 1% 0;
+}
+
+/* Estilo do Link */
+footer a {
+  color: #335230;
+  text-decoration: none;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+
+/* Estilo do Link */
+footer a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(192, 203, 2, 1), 0 0 20px rgba(192, 203, 2, 1);
+}
