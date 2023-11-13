@@ -1,4 +1,6 @@
-/* Modelo_LOGICO: */
+CREATE DATABASE Ecoartesia;
+
+USE Ecoartesia;
 
 CREATE TABLE Usuarios (
     id_usuario INT PRIMARY KEY,
@@ -47,14 +49,14 @@ CREATE TABLE Campanhas (
 );
 
 CREATE TABLE Organizacoes (
-    id_organizacoes INT PRIMARY KEY,
+    id_organizacao INT PRIMARY KEY,
     nome VARCHAR(40),
     endereco_sede VARCHAR(100),
     id_campanha INT
 );
 
 CREATE TABLE Videos (
-    id_videos INT PRIMARY KEY,
+    id_video INT PRIMARY KEY,
     titulo VARCHAR(100),
     duracao VARCHAR(10),
     caminho_arquivo VARCHAR(255)
@@ -74,7 +76,7 @@ CREATE TABLE Registro (
 CREATE TABLE Faz_Usuarios_Voluntarios_Doacoes (
     fk_Usuarios_id_usuario INT,
     fk_Voluntarios_id_voluntario INT,
-    fk_Doacoes_id_doacoes INT
+    fk_Doacoes_id_doacao INT
 );
 
 CREATE TABLE Coordena (
@@ -84,12 +86,12 @@ CREATE TABLE Coordena (
 
 CREATE TABLE Assiste (
     fk_Usuarios_id_usuario INT,
-    fk_Videos_id_videos INT
+    fk_Videos_id_video INT
 );
 
 CREATE TABLE Pertence (
     fk_Campanhas_id_campanha INT,
-    fk_Organizacoes_id_organizacoes INT
+    fk_Organizacoes_id_organizacao INT
 );
 
 CREATE TABLE Participa (
@@ -98,14 +100,14 @@ CREATE TABLE Participa (
 );
 
 CREATE TABLE Visualizacoes (
-    id_visualizacoes INT PRIMARY KEY,
+    id_visualizacao INT PRIMARY KEY,
     tempo_visto VARCHAR(255),
     data_vista VARCHAR(10)
 );
 
 CREATE TABLE Gera (
-    fk_Visualizacoes_id_visualizacoes INT,
-    fk_Videos_id_videos INT
+    fk_Visualizacoes_id_visualizacao INT,
+    fk_Videos_id_video INT
 );
  
 ALTER TABLE Envia_Contatos_Usuarios_Voluntarios ADD CONSTRAINT FK_Envia_Contatos_Usuarios_Voluntarios_1
@@ -144,7 +146,7 @@ ALTER TABLE Faz_Usuarios_Voluntarios_Doacoes ADD CONSTRAINT FK_Faz_Usuarios_Volu
     ON DELETE NO ACTION;
  
 ALTER TABLE Faz_Usuarios_Voluntarios_Doacoes ADD CONSTRAINT FK_Faz_Usuarios_Voluntarios_Doacoes_3
-    FOREIGN KEY (fk_Doacoes_id_doacoes)
+    FOREIGN KEY (fk_Doacoes_id_doacao)
     REFERENCES Doacoes (id_doacoes)
     ON DELETE RESTRICT;
  
@@ -164,8 +166,8 @@ ALTER TABLE Assiste ADD CONSTRAINT FK_Assiste_1
     ON DELETE SET NULL;
  
 ALTER TABLE Assiste ADD CONSTRAINT FK_Assiste_2
-    FOREIGN KEY (fk_Videos_id_videos)
-    REFERENCES Videos (id_videos)
+    FOREIGN KEY (fk_Videos_id_video)
+    REFERENCES Videos (id_video)
     ON DELETE SET NULL;
  
 ALTER TABLE Pertence ADD CONSTRAINT FK_Pertence_1
@@ -174,8 +176,8 @@ ALTER TABLE Pertence ADD CONSTRAINT FK_Pertence_1
     ON DELETE RESTRICT;
  
 ALTER TABLE Pertence ADD CONSTRAINT FK_Pertence_2
-    FOREIGN KEY (fk_Organizacoes_id_organizacoes)
-    REFERENCES Organizacoes (id_organizacoes)
+    FOREIGN KEY (fk_Organizacoes_id_organizacao)
+    REFERENCES Organizacoes (id_organizacao)
     ON DELETE SET NULL;
  
 ALTER TABLE Participa ADD CONSTRAINT FK_Participa_1
@@ -189,11 +191,11 @@ ALTER TABLE Participa ADD CONSTRAINT FK_Participa_2
     ON DELETE SET NULL;
  
 ALTER TABLE Gera ADD CONSTRAINT FK_Gera_1
-    FOREIGN KEY (fk_Visualizacoes_id_visualizacoes???)
-    REFERENCES ??? (???)
+    FOREIGN KEY (fk_Visualizacoes_id_visualizacao)
+    REFERENCES Visualizacoes (id_visualizacao)
     ON DELETE SET NULL;
  
 ALTER TABLE Gera ADD CONSTRAINT FK_Gera_2
-    FOREIGN KEY (fk_Videos_id_videos???)
-    REFERENCES ??? (???)
+    FOREIGN KEY (fk_Videos_id_video)
+    REFERENCES Videos (id_video)
     ON DELETE SET NULL;
