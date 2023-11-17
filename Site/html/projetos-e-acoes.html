@@ -36,11 +36,11 @@
       type="text/css" />
   </head>
 
-  <body class="d-flex flex-column">
+  <body class="d-flex flex-column bg-image">
     <!-- Header -->
     <header class="header">
       <!-- Barra de Navegação -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-navbar flex-column align-items-center">
+      <nav class="navbar navbar-expand-lg navbar-light bg-navbar flex-column align-items-center bg-image">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">
             <img src="../img/Ecoartesia - Lemon Chiffon.png" alt="Ecoartesia" class="img-fluid" />
@@ -70,7 +70,7 @@
                 <a class="nav-link" href="faca-sua-parte.html"><span class="fa-solid fa-circle-dollar-to-slot fa-fade"></span> Faça Sua Parte! </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contato.html"><span class="fa-solid fa-envelope fa-fade"></span> Contato </a>
+                <a class="nav-link btn btn-link" id="msg-open"><span class="fa-solid fa-envelope fa-fade"></span> Contato </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link btn btn-link" id="form-open"><span class="fa-solid fa-right-to-bracket fa-fade"></span> Login </a>
@@ -86,6 +86,104 @@
 
     <!-- Home -->
     <section class="home">
+      <!-- Formulário de Contato -->
+      <section class="msg_sec">
+        <div class="msg_container bg-image">
+          <i class="fa-solid fa-xmark fa-fade msg_close"></i>
+          <form action="#">
+            <h2>Contato</h2>
+
+            <div class="form-group">
+              <input type="text" placeholder="Digite seu nome" required />
+              <i class="fa-solid fa-user fa-fade name"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="email" placeholder="Digite seu email" required />
+              <i class="fa-solid fa-envelope fa-fade email"></i>
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Telefone" required />
+              <i class="fa-solid fa-phone fa-fade phone"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="text" placeholder="CEP" required />
+              <i class="fa-solid fa-barcode fa-fade cep"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="text" placeholder="Endereço" required />
+              <i class="fa-solid fa-home fa-fade address"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="text" placeholder="Número" required />
+              <i class="fa-solid fa-hashtag fa-fade number"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="text" placeholder="Complemento" required />
+              <i class="fa-solid fa-plus fa-fade complement"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="text" placeholder="Bairro" required />
+              <i class="fa-solid fa-map-marker fa-fade neighborhood"></i>
+            </div>
+
+            <div class="dropdown">
+              <button class="btn btn-secondary form-group" id="dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Selecione o estado...
+                <i class="fa-solid fa-caret-down fa-fade"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" value="">Selecione o estado...</a></li>
+                <li><a class="dropdown-item" href="#" value="AC">Acre (AC)</a></li>
+                <li><a class="dropdown-item" href="#" value="AL">Alagoas (AL)</a></li>
+                <li><a class="dropdown-item" href="#" value="AP">Amapá (AP)</a></li>
+                <li><a class="dropdown-item" href="#" value="AM">Amazonas (AM)</a></li>
+                <li><a class="dropdown-item" href="#" value="BA">Bahia (BA)</a></li>
+                <li><a class="dropdown-item" href="#" value="CE">Ceará (CE)</a></li>
+                <li><a class="dropdown-item" href="#" value="DF">Distrito Federal (DF)</a></li>
+                <li><a class="dropdown-item" href="#" value="ES">Espírito Santo (ES)</a></li>
+                <li><a class="dropdown-item" href="#" value="GO">Goiás (GO)</a></li>
+                <li><a class="dropdown-item" href="#" value="MA">Maranhão (MA)</a></li>
+                <li><a class="dropdown-item" href="#" value="MT">Mato Grosso (MT)</a></li>
+                <li><a class="dropdown-item" href="#" value="MS">Mato Grosso do Sul (MS)</a></li>
+                <li><a class="dropdown-item" href="#" value="MG">Minas Gerais (MG)</a></li>
+                <li><a class="dropdown-item" href="#" value="PA">Pará (PA)</a></li>
+                <li><a class="dropdown-item" href="#" value="PB">Paraíba (PB)</a></li>
+                <li><a class="dropdown-item" href="#" value="PR">Paraná (PR)</a></li>
+                <li><a class="dropdown-item" href="#" value="PE">Pernambuco (PE)</a></li>
+                <li><a class="dropdown-item" href="#" value="PI">Piauí (PI)</a></li>
+                <li><a class="dropdown-item" href="#" value="RJ">Rio de Janeiro (RJ)</a></li>
+                <li><a class="dropdown-item" href="#" value="RN">Rio Grande do Norte (RN)</a></li>
+                <li><a class="dropdown-item" href="#" value="RS">Rio Grande do Sul (RS)</a></li>
+                <li><a class="dropdown-item" href="#" value="RO">Rondônia (RO)</a></li>
+                <li><a class="dropdown-item" href="#" value="RR">Roraima (RR)</a></li>
+                <li><a class="dropdown-item" href="#" value="SC">Santa Catarina (SC)</a></li>
+                <li><a class="dropdown-item" href="#" value="SP">São Paulo (SP)</a></li>
+                <li><a class="dropdown-item" href="#" value="SE">Sergipe (SE)</a></li>
+                <li><a class="dropdown-item" href="#" value="TO">Tocantins (TO)</a></li>
+              </ul>
+              <i class="fa-solid fa-flag fa-fade state"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="text" placeholder="Cidade" required />
+              <i class="fa-solid fa-city fa-fade city"></i>
+            </div>
+
+            <div class="form-group" id="form-group-msg">
+              <textarea placeholder="Digite sua mensagem..." required></textarea>
+              <i class="fa-regular fa-comment-dots fa-fade message"></i>
+            </div>
+            <button class="msg_button">Enviar mensagem</button>
+          </form>
+        </div>
+      </section>
+
       <!-- Formulário de login e cadastro -->
       <div class="form_container">
         <i class="fa-solid fa-xmark fa-fade form_close" id="X"></i>
@@ -94,12 +192,12 @@
           <form action="#">
             <h2>Login</h2>
 
-            <div class="input_box">
+            <div class="form-group">
               <input type="email" placeholder="Digite seu email" required />
               <i class="fa-solid fa-envelope fa-fade email"></i>
             </div>
 
-            <div class="input_box">
+            <div class="form-group">
               <input type="password" placeholder="Digite sua senha" required />
               <i class="fa-solid fa-unlock-keyhole fa-fade password"></i>
               <i class="fa-solid fa-eye-slash fa-fade pw_hide"></i>
@@ -124,18 +222,18 @@
           <form action="#">
             <h2>Cadastro</h2>
 
-            <div class="input_box">
+            <div class="form-group">
               <input type="email" placeholder="Digite seu email" required />
               <i class="fa-solid fa-envelope fa-fade email"></i>
             </div>
 
-            <div class="input_box">
+            <div class="form-group">
               <input type="password" placeholder="Senha" required />
               <i class="fa-solid fa-unlock-keyhole fa-fade password"></i>
               <i class="fa-solid fa-eye-slash fa-fade pw_hide"></i>
             </div>
 
-            <div class="input_box">
+            <div class="form-group">
               <input type="password" placeholder="Confirmar senha" required />
               <i class="fa-solid fa-unlock-keyhole fa-fade password"></i>
               <i class="fa-solid fa-eye-slash fa-fade pw_hide"></i>
@@ -168,7 +266,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h2 class="mb-4">PROGRAMAS <br />& PROJETOS.</h2>
+            <h2 class="mb-4">Projetos e Ações.</h2>
           </div>
           <div class="col-md-6">
             <p class="mb-4">
@@ -183,7 +281,7 @@
         <div class="row">
           <!-- Cartão do Japão -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">
                 Palestras<br />Educativas em<br />
                 Empresas e Escolas:
@@ -204,7 +302,7 @@
 
           <!-- Cartão da Islândia -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">Oficinas<br />e Cursos<br />Transformadores:</div>
               <div class="img-container">
                 <img src="../img/cursos.jpg" class="card-img-top img-fluid" alt="Destino 2" />
@@ -220,7 +318,7 @@
           </div>
           <!-- Cartão da Noruega -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">Apoio a<br />Iniciativas<br />Empreendedoras:</div>
               <div class="img-container">
                 <img src="../img/empreendedor.jpg" class="card-img-top img-fluid" alt="Destino 3" />
@@ -242,7 +340,7 @@
         <div class="row">
           <!-- Cartão da Inglaterra -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">Incentivo ao<br />Desenvolvimento<br />de Negócios Locais:</div>
               <div class="img-container">
                 <img src="../img/economia.jpg" class="card-img-top img-fluid" alt="Destino 4" />
@@ -259,7 +357,7 @@
 
           <!-- Cartão da Austrália -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">Campanhas<br />de Conscientização<br />e Mobilização Social:</div>
               <div class="img-container">
                 <img src="../img/mobilização.jpg" class="card-img-top img-fluid" alt="Destino 5" />
@@ -275,7 +373,7 @@
           </div>
           <!-- Cartão da Itália -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">Empoderamento<br />de Comunidades Marginalizadas:</div>
               <div class="img-container">
                 <img src="../img/lideranca.jpg" class="card-img-top img-fluid" alt="Destino 6" />
@@ -298,7 +396,7 @@
         <div class="row">
           <!-- Cartão da Inglaterra -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">Parcerias<br />Estratégicas<br />Colaborativas:</div>
               <div class="img-container">
                 <img src="../img/parceiro.jpg" class="card-img-top img-fluid" alt="Destino 4" />
@@ -315,7 +413,7 @@
 
           <!-- Cartão da Austrália -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">Incentivo<br />a Inovação<br />e ao Desenvolvimento:</div>
               <div class="img-container">
                 <img src="../img/cultivo.jpg" class="card-img-top img-fluid" alt="Destino 5" />
@@ -331,7 +429,7 @@
           </div>
           <!-- Cartão da Itália -->
           <div class="col-md-4">
-            <div class="card mb-4 fixed-height">
+            <div class="card mb-4 fixed-height bg-image">
               <div class="card-header truncate">Igualdade na<br />Luta contra<br />a Crise Climática:</div>
               <div class="img-container">
                 <img src="../img/crise.jpg" class="card-img-top img-fluid" alt="Destino 6" />

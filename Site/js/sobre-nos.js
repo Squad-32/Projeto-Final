@@ -21,13 +21,30 @@ function setActiveLink() {
     document.querySelector('.nav-item a[href="cursos.html"]').classList.add('active');
   } else if (currentPage.includes('faca-sua-parte.html')) {
     document.querySelector('.nav-item a[href="faca-sua-parte.html"]').classList.add('active');
-  } else if (currentPage.includes('contato.html')) {
-    document.querySelector('.nav-item a[href="contato.html"]').classList.add('active');
   }
 }
 
 // Chama a função para definir o link ativo na página carregada
 setActiveLink();
+
+/* ------------------------------ Funções Para Abrir e Fechar o Formulário de Contato ------------------------------ */
+// Constantes padrões
+const msg_sec = document.querySelector('.msg_sec');
+
+// Constantes do login/cadastro
+const msgOpenBtn = document.querySelector('#msg-open');
+const msgCloseBtn = document.querySelector('.msg_close');
+
+// Abre e fecha o formulário de login e cadastro
+msgOpenBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  msg_sec.classList.add('show');
+});
+
+// Fecha o fFormulário de Contato quando o botão de fechar é clicado
+msgCloseBtn.addEventListener('click', () => {
+  msg_sec.classList.remove('show');
+});
 
 /* --------------------------------- Funções para abrir e fechar o formulário de login -------------------------------- */
 // Constantes padrões
