@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class ConnectionMySQL {
-	private static String URL = "jdbc:mysql://localhost:3306/ecoartesia";
-	private static String USUARIO = "root";
-	private static String SENHA = "551104";
+	private static String URL = System.getenv("JTV_URL");
+	private static String USUARIO = System.getenv("JTV_USUARIO");
+	private static String SENHA = System.getenv("JTV_SENHA");
 	
 	public static Connection createConnectionMySQL() throws Exception {
 		Class.forName("com.mysql.cj.jdbc.Driver");
