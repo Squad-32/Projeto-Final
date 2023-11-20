@@ -24,3 +24,4 @@ temp/
 
 # Ignore cache files / Ignorar arquivos de cache
 *.cache
+/bin/
