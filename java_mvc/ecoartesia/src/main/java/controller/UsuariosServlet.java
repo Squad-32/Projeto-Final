@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UsuariosDAO;
 import modelos.Usuarios;
@@ -55,8 +56,7 @@ public class UsuariosServlet extends HttpServlet {
 				response.sendRedirect("index.jsp");
 				break;}
 	}
-			
-
+	
 	protected void read(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		List<Usuarios> lista = udao.read();
 		System.out.println(lista);
@@ -66,17 +66,30 @@ public class UsuariosServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("./views/Usuarios/index.jsp");
 		rd.forward(request, response);
 	}
-	
-	protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		Usuario.setNome(request.getParameter("nome"));
-		Usuario.setEmail(request.getParameter("email"));
-		Usuario.setSenha(request.getParameter("senha"));
-		
-		udao.create(Usuario);
-		response.sendRedirect("Usuario");
-		
-		
+
+	protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    
+	    Usuario.setNome(request.getParameter("nome"));
+	    Usuario.setEmail(request.getParameter("email"));
+	    Usuario.setSenha(request.getParameter("senha"));
+	    Usuario.setCep(request.getParameter("cep"));
+	    Usuario.setEndereco(request.getParameter("endereco"));
+	    Usuario.setNumero(request.getParameter("numero"));
+	    Usuario.setComplemento(request.getParameter("complemento"));
+	    Usuario.setBairro(request.getParameter("bairro"));
+	    Usuario.setEstado(request.getParameter("estado"));
+	    Usuario.setCidade(request.getParameter("cidade"));
+
+
+	    udao.create(Usuario);
+
+	    HttpSession session = request.getSession();
+	    session.setAttribute("email", Usuario.getEmail()); // Armazena o e-mail do usuário na sessão
+
+	    String previousPage = request.getHeader("referer"); // Obtém o URL da página anterior
+	    response.sendRedirect(previousPage); // Redireciona para a página anterior
 	}
+
 	
 	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int id = Integer.parseInt(request.getParameter("id"));
@@ -96,10 +109,22 @@ public class UsuariosServlet extends HttpServlet {
 		Usuario.setNome(request.getParameter("nome"));
 		Usuario.setEmail(request.getParameter("email"));
 		Usuario.setSenha(request.getParameter("senha"));
+		Usuario.setCep(request.getParameter("cep"));
+		Usuario.setEndereco(request.getParameter("endereco"));
+		Usuario.setNumero(request.getParameter("numero"));
+		Usuario.setComplemento(request.getParameter("complemento"));
+		Usuario.setBairro(request.getParameter("bairro"));
+		Usuario.setEstado(request.getParameter("estado"));
+		Usuario.setCidade(request.getParameter("cidade"));
+
 		
 		udao.update(Usuario);
-		response.sendRedirect("Usuario");
+		
+	    String currentPage = request.getParameter("currentPage");
+
+	    response.sendRedirect(currentPage);
 	}
+	
 	
 	protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int id = Integer.parseInt(request.getParameter("id"));

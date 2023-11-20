@@ -15,7 +15,7 @@ public class UsuariosCRUD {
 		
 		int opcao = 0;
 		
-		String nome = "", email = "", senha ="";
+		String nome = "", email = "", senha ="", cep="", endereco="", numero="", complemento="", bairro="", estado="", cidade="" ;
 		
 		do {
 			
@@ -35,7 +35,29 @@ public class UsuariosCRUD {
 				System.out.println("Digite sua senha:");
 				senha = s.nextLine();
 				
-				Usuarios usuario1 = new Usuarios( nome, email, senha);
+				System.out.println("Digite seu cep:");
+				senha = s.nextLine();
+				
+				System.out.println("Digite seu endereco:");
+				senha = s.nextLine();
+				
+				System.out.println("Digite o numero:");
+				senha = s.nextLine();
+				
+				System.out.println("Caso tenha, digite o complemento:");
+				senha = s.nextLine();
+
+				System.out.println("Digite o bairro:");
+				senha = s.nextLine();
+				
+				System.out.println("Digite o estado:");
+				senha = s.nextLine();
+				
+				System.out.println("Digite o cidade:");
+				senha = s.nextLine();
+				
+				
+				Usuarios usuario1 = new Usuarios( nome, email, senha, cep, endereco, numero, complemento, bairro, estado, cidade);
 				usuariosDAO.create(usuario1);
 				
 				break;
@@ -61,12 +83,33 @@ public class UsuariosCRUD {
 				
 				System.out.println("Digite sua senha:");
 				senha = s.nextLine();
+				
+				System.out.println("Digite seu cep:");
+				senha = s.nextLine();
+				
+				System.out.println("Digite seu endereco:");
+				senha = s.nextLine();
+				
+				System.out.println("Digite o numero:");
+				senha = s.nextLine();
+				
+				System.out.println("Caso tenha, digite o complemento:");
+				senha = s.nextLine();
+
+				System.out.println("Digite o bairro:");
+				senha = s.nextLine();
+				
+				System.out.println("Digite o estado:");
+				senha = s.nextLine();
+				
+				System.out.println("Digite o cidade:");
+				senha = s.nextLine();
 								
 				System.out.println("Digite seu id:");
 				int id = s.nextInt();
 				s.nextLine();
 				
-				Usuarios usuario2 = new Usuarios(id, nome, email, senha);
+				Usuarios usuario2 = new Usuarios(id, nome, email, senha, cep, endereco, numero, complemento, bairro, estado, cidade);
 				
 				usuariosDAO.update(usuario2);
 				break;
