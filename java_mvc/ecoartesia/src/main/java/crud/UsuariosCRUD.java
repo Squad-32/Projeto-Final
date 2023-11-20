@@ -28,39 +28,39 @@ public class UsuariosCRUD {
 			case 1:
 				System.out.println("Digite o seu nome:");
 				nome = s.nextLine();
-		
+
 				System.out.println("Digite seu email:");
 				email = s.nextLine();
-				
+
 				System.out.println("Digite sua senha:");
 				senha = s.nextLine();
-				
+
 				System.out.println("Digite seu cep:");
-				senha = s.nextLine();
-				
+				cep = s.nextLine();
+
 				System.out.println("Digite seu endereco:");
-				senha = s.nextLine();
-				
+				endereco = s.nextLine();
+
 				System.out.println("Digite o numero:");
-				senha = s.nextLine();
-				
+				numero = s.nextLine();
+
 				System.out.println("Caso tenha, digite o complemento:");
-				senha = s.nextLine();
+				complemento = s.nextLine();
 
 				System.out.println("Digite o bairro:");
-				senha = s.nextLine();
-				
+				bairro = s.nextLine();
+
 				System.out.println("Digite o estado:");
-				senha = s.nextLine();
-				
+				estado = s.nextLine();
+
 				System.out.println("Digite o cidade:");
-				senha = s.nextLine();
-				
-				
-				Usuarios usuario1 = new Usuarios( nome, email, senha, cep, endereco, numero, complemento, bairro, estado, cidade);
+				cidade = s.nextLine();
+
+				Usuarios usuario1 = new Usuarios(nome, email, senha, cep, endereco, numero, complemento, bairro, estado, cidade);
 				usuariosDAO.create(usuario1);
-				
+
 				break;
+
 				
 				
 			case 2:
@@ -73,46 +73,44 @@ public class UsuariosCRUD {
 				break;
 				
 			case 3:
-				
-				
 				System.out.println("Digite o seu nome:");
 				nome = s.nextLine();
-				
+
 				System.out.println("Digite seu email:");
 				email = s.nextLine();
-				
+
 				System.out.println("Digite sua senha:");
 				senha = s.nextLine();
-				
+
 				System.out.println("Digite seu cep:");
-				senha = s.nextLine();
-				
+				cep = s.nextLine();
+
 				System.out.println("Digite seu endereco:");
-				senha = s.nextLine();
-				
+				endereco = s.nextLine();
+
 				System.out.println("Digite o numero:");
-				senha = s.nextLine();
-				
+				numero = s.nextLine();
+
 				System.out.println("Caso tenha, digite o complemento:");
-				senha = s.nextLine();
+				complemento = s.nextLine();
 
 				System.out.println("Digite o bairro:");
-				senha = s.nextLine();
-				
+				bairro = s.nextLine();
+
 				System.out.println("Digite o estado:");
-				senha = s.nextLine();
-				
+				estado = s.nextLine();
+
 				System.out.println("Digite o cidade:");
-				senha = s.nextLine();
-								
+				cidade = s.nextLine();
+
 				System.out.println("Digite seu id:");
 				int id = s.nextInt();
 				s.nextLine();
-				
+
 				Usuarios usuario2 = new Usuarios(id, nome, email, senha, cep, endereco, numero, complemento, bairro, estado, cidade);
-				
 				usuariosDAO.update(usuario2);
 				break;
+
 	
 			case 4:
 				
