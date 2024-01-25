@@ -1,0 +1,8 @@
+package mvc_repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import mvc_model.Reservas;
+
+public interface ReservasRepository extends JpaRepository<Reservas, Long> {
+    // Aqui você pode adicionar métodos personalizados de consulta, se necessário
+}

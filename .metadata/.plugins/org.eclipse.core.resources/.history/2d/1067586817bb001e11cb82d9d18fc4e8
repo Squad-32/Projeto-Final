@@ -1,0 +1,42 @@
+package mvc_model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor // Adicionado para permitir a criação de um objeto sem passar argumentos
+@AllArgsConstructor
+@Entity
+@Table(name = "reservas")
+public class Reservas {
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private long id;
+	private String origem;
+	private String destino;
+	private String empresa;
+	private String classe;
+	private String assento;
+	private Double preco;
+	private String codigo;
+
+	@ManyToOne // Relacionamento muitos-para-um com Compras
+	@JoinColumn(name = "compra_id") // A coluna de chave estrangeira na tabela de reservas
+	private Compras compra;
+
+	@Override
+	public String toString() {
+		return "Reservas [id=" + id + ", origem=" + origem + ", destino=" + destino + ", empresa=" + empresa
+				+ ", classe=" + classe + ", assento=" + assento + ", preco=" + preco + ", codigo=" + codigo
+				+ ", compra=" + compra + "]"; // Agora inclui a referência à compra na representação string
+	}
+}

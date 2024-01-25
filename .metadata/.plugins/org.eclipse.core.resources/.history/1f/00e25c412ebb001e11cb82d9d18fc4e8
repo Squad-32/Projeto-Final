@@ -1,0 +1,33 @@
+package mvc_model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "Doacoes")
+public class Doacoes {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private double quantidadeDoada;
+    private String dataDoacao; // Alterado para String
+
+    @ManyToOne
+    @JoinColumn(name = "fk_Usuarios_id_usuario")
+    private Usuarios usuario;
+
+    private double quantidade_doada;
+    private String data_doacao;
+
+    @Override
+    public String toString() {
+        return "Doacoes [id=" + id + ", usuario=" + usuario + ", quantidadeDoada=" + quantidade_doada + 
+               ", dataDoacao=" + data_doacao + "]";
+    }
+}

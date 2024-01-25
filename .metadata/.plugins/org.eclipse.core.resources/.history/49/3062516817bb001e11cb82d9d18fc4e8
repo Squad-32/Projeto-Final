@@ -1,0 +1,45 @@
+package mvc_model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor // Adicionado para permitir a criação de um objeto sem passar argumentos
+@AllArgsConstructor
+@Entity
+@Table(name = "passagens")
+public class Voluntarios {
+    
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
+    private String empresa; 
+    private String destino;
+    private String dataIda;
+    private String dataVolta;
+    private String horaIda;
+    private String horaVolta;
+    private String assento;
+    private String codigo;
+    private String portaoDeEmbarque;
+
+    @OneToOne
+    @JoinColumn(name = "reserva_id", referencedColumnName = "id") // A coluna de chave estrangeira na tabela de passagens
+    private Reservas reserva; // A reserva associada a esta passagem
+    
+    @Override
+    public String toString() {
+        return "Passagens [id=" + id + ", empresa=" + empresa + ", destino=" + destino + ", dataIda=" + dataIda
+                + ", dataVolta=" + dataVolta + ", horaIda=" + horaIda + ", horaVolta=" + horaVolta + ", assento="
+                + assento + ", codigo=" + codigo + ", portaoDeEmbarque=" + portaoDeEmbarque + ", reserva=" + reserva + "]";
+    }
+
+}

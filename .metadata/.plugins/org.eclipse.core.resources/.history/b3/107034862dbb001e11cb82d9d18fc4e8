@@ -1,0 +1,38 @@
+package mvc_model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import java.sql.Timestamp;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "Doacoes")
+public class Doacoes {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    
+    @ManyToOne
+    @JoinColumn(name = "fk_Usuarios_id_usuario")
+    private Usuarios usuario;
+
+    private double quantidadeDoada;
+    private Timestamp dataDoacao;
+
+    @Override
+    public String toString() {
+        return "Doacoes [id=" + id + ", usuario=" + usuario + ", quantidadeDoada=" + quantidadeDoada + 
+               ", dataDoacao=" + dataDoacao + "]";
+    }
+}

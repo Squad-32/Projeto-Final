@@ -1,0 +1,38 @@
+package mvc_model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor // Para JPA
+@AllArgsConstructor
+@Entity
+@Table(name = "contatos") // Correção do nome da tabela
+public class Contatos {
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private long id;
+
+	@ManyToOne // Relacionamento muitos-para-um com a entidade Usuarios
+	@JoinColumn(name = "id_usuario", referencedColumnName = "id") // A coluna de chave estrangeira na tabela de contatos
+	private Usuarios usuario; // Referência ao objeto Usuarios em vez de apenas o ID
+
+	private String nome;
+	private String email;
+	private String telefone;
+	private String mensagem;
+	
+	@Override
+	public String toString() {
+		return "Contatos [id=" + id + ", usuario=" + usuario + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", mensagem=" + mensagem + "]";
+	}
+}
