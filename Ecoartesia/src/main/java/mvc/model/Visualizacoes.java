@@ -14,7 +14,7 @@ public class Visualizacoes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_visualizacao;
+    private Long id;
     private String tempo_visto;
     private String data_vista;
 
@@ -23,6 +23,6 @@ public class Visualizacoes {
 
     @Override
     public String toString() {
-        return "Visualizacoes [id_visualizacao=" + id_visualizacao + ", tempo_visto=" + tempo_visto + ", data_vista=" + data_vista + "]";
+        return "Visualizacoes [id=" + id + ", tempo_visto=" + tempo_visto + ", data_vista=" + data_vista + "]";
     }
 }

@@ -16,13 +16,13 @@ public class Videos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_video;
+    private Long id;
     private String titulo;
     private String duracao;
     private String caminho_arquivo;
 
     @OneToOne
-    @JoinColumn(name = "fk_Visualizacoes_id_visualizacao", referencedColumnName = "id_visualizacao")
+    @JoinColumn(name = "fk_Visualizacoes_id_visualizacao", referencedColumnName = "id_visualizacoes")
     private Visualizacoes visualizacao;
 
     @ManyToMany
@@ -35,7 +35,7 @@ public class Videos {
 
     @Override
     public String toString() {
-        return "Videos [id_video=" + id_video + ", titulo=" + titulo + ", duracao=" + duracao + 
+        return "Videos [id=" + id + ", titulo=" + titulo + ", duracao=" + duracao + 
                ", caminho_arquivo=" + caminho_arquivo + ", visualizacao=" + visualizacao + "]";
     }
 }

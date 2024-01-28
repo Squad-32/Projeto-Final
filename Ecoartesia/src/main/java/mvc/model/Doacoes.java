@@ -14,8 +14,8 @@ public class Doacoes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private double quantidade_doada;
+    private Long id;
+    private Double quantidade_doada;
     private String data_doacao;
 
     @ManyToOne

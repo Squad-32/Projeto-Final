@@ -7,5 +7,4 @@ import mvc.model.Usuarios;
 
 @Repository
 public interface UsuariosRepository extends JpaRepository<Usuarios, Long> {
-
 }

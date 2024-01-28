@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.8</version>
+		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>Ecoartesia</artifactId>
+	<groupId>mvc</groupId>
+	<artifactId>JetivaSpringMvc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Ecoartesia</name>
-	<description>Ecoartesia - site desenvolvido em Spring Boot</description>
+	<name>JetivaSpringMvc</name>
+	<description>MVC Project With Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -59,9 +59,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<image>
-						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
-					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
