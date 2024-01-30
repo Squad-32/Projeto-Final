@@ -3,114 +3,98 @@ CREATE DATABASE Ecoartesia;
 USE Ecoartesia;
 
 CREATE TABLE Usuarios (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     email VARCHAR(100) UNIQUE,
     telefone VARCHAR(20),
-    senha_hash VARCHAR(255)
+    senha VARCHAR(255)
 );
 
 CREATE TABLE Contatos (
-    id_contato INT AUTO_INCREMENT PRIMARY KEY,
+    id_contato BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     email VARCHAR(100),
     telefone VARCHAR(20),
     mensagem TEXT,
-    fk_Usuarios_id_usuario INT,
+    fk_Usuarios_id_usuario BIGINT,
     FOREIGN KEY (fk_Usuarios_id_usuario) REFERENCES Usuarios (id_usuario) ON DELETE SET NULL
 );
 
 CREATE TABLE Voluntarios (
-    id_voluntario INT AUTO_INCREMENT PRIMARY KEY,
-    fk_Usuarios_id_usuario INT,
+    id_voluntario BIGINT AUTO_INCREMENT PRIMARY KEY,
+    fk_Usuarios_id_usuario BIGINT,
     disponibilidade TEXT,
     interesses TEXT,
     FOREIGN KEY (fk_Usuarios_id_usuario) REFERENCES Usuarios (id_usuario)
 );
 
 CREATE TABLE Doacoes (
-    id_doacao INT AUTO_INCREMENT PRIMARY KEY,
-    fk_Usuarios_id_usuario INT,
+    id_doacao BIGINT AUTO_INCREMENT PRIMARY KEY,
+    fk_Usuarios_id_usuario BIGINT,
     quantidade_doada DECIMAL(10,2),
     data_doacao TIMESTAMP,
     FOREIGN KEY (fk_Usuarios_id_usuario) REFERENCES Usuarios (id_usuario)
 );
 
 CREATE TABLE Organizacoes (
-    id_organizacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_organizacao BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     endereco_sede VARCHAR(255)
 );
 
 CREATE TABLE Campanhas (
-    id_campanha INT AUTO_INCREMENT PRIMARY KEY,
+    id_campanha BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     descricao TEXT,
     meta_arrecadacao DECIMAL(10,2),
     data_inicio TIMESTAMP,
     data_termino TIMESTAMP,
-    fk_Organizacoes_id_organizacao INT,
+    fk_Organizacoes_id_organizacao BIGINT,
     FOREIGN KEY (fk_Organizacoes_id_organizacao) REFERENCES Organizacoes (id_organizacao) ON DELETE SET NULL
 );
 
 CREATE TABLE Visualizacoes (
-    id_visualizacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_visualizacao BIGINT AUTO_INCREMENT PRIMARY KEY,
     tempo_visto VARCHAR(255),
     data_vista TIMESTAMP
 );
 
 CREATE TABLE Videos (
-    id_video INT AUTO_INCREMENT PRIMARY KEY,
+    id_video BIGINT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(100),
     duracao VARCHAR(10),
     caminho_arquivo VARCHAR(255),
-    fk_Visualizacoes_id_visualizacao INT,
-    FOREIGN KEY (fk_Visualizacoes_id_visualizacao) REFERENCES Visualizacoes (id_visualizacao) ON DELETE RESTRICT
-);
-
-CREATE TABLE Cursos (
-    id_curso INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100),
-    categoria VARCHAR(50),
-    descricao TEXT,
-    duracao VARCHAR(100)
+    fk_Visualizacoes_id_visualizacao BIGINT,
+    FOREIGN KEY (fk_Visualizacoes_id_visualizacao) REFERENCES Visualizacoes (id_visualizacao) ON DELETE SET NULL
 );
 
 CREATE TABLE Assiste_Videos (
-    fk_Usuarios_id_usuario INT,
-    fk_Videos_id_video INT,
+    fk_Usuarios_id_usuario BIGINT,
+    fk_Videos_id_video BIGINT,
     PRIMARY KEY (fk_Usuarios_id_usuario, fk_Videos_id_video),
-    FOREIGN KEY (fk_Usuarios_id_usuario) REFERENCES Usuarios (id_usuario) ON DELETE SET NULL,
-    FOREIGN KEY (fk_Videos_id_video) REFERENCES Videos (id_video) ON DELETE SET NULL
+    FOREIGN KEY (fk_Usuarios_id_usuario) REFERENCES Usuarios (id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (fk_Videos_id_video) REFERENCES Videos (id_video) ON DELETE CASCADE
 );
 
 CREATE TABLE Usuarios_Participa (
-    fk_Usuarios_id_usuario INT,
-    fk_Campanhas_id_campanha INT,
+    fk_Usuarios_id_usuario BIGINT,
+    fk_Campanhas_id_campanha BIGINT,
     PRIMARY KEY (fk_Usuarios_id_usuario, fk_Campanhas_id_campanha),
     FOREIGN KEY (fk_Usuarios_id_usuario) REFERENCES Usuarios (id_usuario),
     FOREIGN KEY (fk_Campanhas_id_campanha) REFERENCES Campanhas (id_campanha)
 );
 
 CREATE TABLE Voluntarios_Faz (
-    fk_Doacoes_id_doacao INT,
-    fk_Voluntarios_id_voluntario INT,
+    fk_Doacoes_id_doacao BIGINT,
+    fk_Voluntarios_id_voluntario BIGINT,
     PRIMARY KEY (fk_Doacoes_id_doacao, fk_Voluntarios_id_voluntario),
     FOREIGN KEY (fk_Doacoes_id_doacao) REFERENCES Doacoes (id_doacao) ON DELETE RESTRICT,
     FOREIGN KEY (fk_Voluntarios_id_voluntario) REFERENCES Voluntarios (id_voluntario)
 );
 
-CREATE TABLE Matricula_se (
-    fk_Cursos_id_curso INT,
-    fk_Usuarios_id_usuario INT,
-    PRIMARY KEY (fk_Cursos_id_curso, fk_Usuarios_id_usuario),
-    FOREIGN KEY (fk_Cursos_id_curso) REFERENCES Cursos (id_curso),
-    FOREIGN KEY (fk_Usuarios_id_usuario) REFERENCES Usuarios (id_usuario)
-);
-
 -- Inserção de dados na tabela Usuarios
-INSERT INTO Usuarios (nome, email, telefone, senha_hash) VALUES 
-('John Doe', 'john.doe@gmail.com', '1234567890', 'hashed_password');
+INSERT INTO Usuarios (nome, email, telefone, senha) VALUES 
+('John Doe', 'john.doe@gmail.com', '1234567890', 'password');
 
 -- Inserção de dados na tabela Voluntarios
 INSERT INTO Voluntarios (fk_Usuarios_id_usuario, disponibilidade, interesses) VALUES 
@@ -133,8 +117,17 @@ INSERT INTO Campanhas (nome, descricao, meta_arrecadacao, data_inicio, data_term
 ('Campanha de Arrecadação', 'Arrecadação de fundos para causas sociais', 500.00, NOW(), DATE_ADD(NOW(), INTERVAL 30 DAY), 1);
 
 -- Inserção de dados na tabela Visualizacoes
-INSERT INTO Visualizacoes (tempo_visto, data_vista) VALUES 
-('10 minutos', NOW());
+INSERT INTO Visualizacoes (tempo_visto, data_vista) VALUES
+('0:12', NOW()),
+('1:02', NOW()),
+('0:14', NOW()),
+('0:08', NOW()),
+('0:15', NOW()),
+('0:09', NOW()),
+('0:29', NOW()),
+('0:04', NOW()),
+('0:17', NOW()),
+('0:39', NOW());
 
 -- Inserção de dados na tabela Videos
 INSERT INTO Videos (titulo, duracao, caminho_arquivo, fk_Visualizacoes_id_visualizacao) VALUES 
@@ -149,10 +142,6 @@ INSERT INTO Videos (titulo, duracao, caminho_arquivo, fk_Visualizacoes_id_visual
 ('Direitos Humanos e a Diversidade LGBTQIA+', '0:17', './vid/Direitos Humanos e a Diversidade LGBTQIA.mp4', 9),
 ('A Importância da Liderança na Promoção dos Direitos Humanos e da Igualdade', '0:39', './vid/A Importância da Liderança na Promoção dos Direitos Humanos e da Igualdade.mp4', 10);
 
--- Inserção de dados na tabela Cursos
-INSERT INTO Cursos (nome, categoria, descricao, duracao) VALUES 
-('Curso Teste', 'Categoria Teste', 'Descrição do curso teste', '4 semanas');
-
 -- Inserção de dados na tabela Assiste_Videos
 INSERT INTO Assiste_Videos (fk_Usuarios_id_usuario, fk_Videos_id_video) VALUES 
 (1, 1);
@@ -163,10 +152,6 @@ INSERT INTO Usuarios_Participa (fk_Usuarios_id_usuario, fk_Campanhas_id_campanha
 
 -- Inserção de dados na tabela Voluntarios_Faz
 INSERT INTO Voluntarios_Faz (fk_Doacoes_id_doacao, fk_Voluntarios_id_voluntario) VALUES 
-(1, 1);
-
--- Inserção de dados na tabela Matricula_se
-INSERT INTO Matricula_se (fk_Cursos_id_curso, fk_Usuarios_id_usuario) VALUES 
 (1, 1);
 
 -- Consultas
@@ -202,10 +187,6 @@ UPDATE Voluntarios SET disponibilidade = 'Fins de semana e feriados', interesses
 
 -- Deleções
 -- Excluir registros dependentes
-DELETE FROM Usuarios_Envia WHERE fk_Usuarios_id_usuario = 1;
-DELETE FROM Usuarios_Faz WHERE fk_Usuarios_id_usuario = 1;
-DELETE FROM Voluntarios_Coordena WHERE fk_Voluntarios_id_voluntario = 1;
-DELETE FROM Voluntarios_Envia WHERE fk_Voluntarios_id_voluntario = 1;
 DELETE FROM Visualizacoes WHERE id_visualizacao = 1;
 DELETE FROM Usuarios_Participa WHERE fk_Usuarios_id_usuario = 1;
 DELETE FROM Voluntarios_Faz WHERE fk_Doacoes_id_doacao = 1;

@@ -16,7 +16,11 @@ public class Videos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< Updated upstream
     private long id_video;
+=======
+    private Long id_video;
+>>>>>>> Stashed changes
     private String titulo;
     private String duracao;
     private String caminho_arquivo;
@@ -28,8 +32,8 @@ public class Videos {
     @ManyToMany
     @JoinTable(
         name = "Assiste_Videos",
-        joinColumns = @JoinColumn(name = "fk_Videos_id_video"),
-        inverseJoinColumns = @JoinColumn(name = "fk_Usuarios_id_usuario")
+        joinColumns = @JoinColumn(name = "fk_Videos_id_video", columnDefinition = "BIGINT"),
+        inverseJoinColumns = @JoinColumn(name = "fk_Usuarios_id_usuario", columnDefinition = "BIGINT")
     )
     private Set<Usuarios> usuarios;
 

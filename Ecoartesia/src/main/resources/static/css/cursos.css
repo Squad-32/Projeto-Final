@@ -83,7 +83,8 @@ body::-webkit-scrollbar-track {
 
 /* Efeito do hover na imagem */
 .navbar-brand img:hover {
-  filter: drop-shadow(-1px 0 #755026) drop-shadow(0 1px #755026) drop-shadow(1px 0 #755026) drop-shadow(0 -1px #755026) drop-shadow(0 0 10px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 10px rgba(192, 203, 2, 0.6));
+  filter: drop-shadow(-1px 0 #755026) drop-shadow(0 1px #755026) drop-shadow(1px 0 #755026) drop-shadow(0 -1px #755026)
+    drop-shadow(0 0 10px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 10px rgba(192, 203, 2, 0.6));
   transform: scale(1.1) translateY(-5px);
 }
 
@@ -138,7 +139,7 @@ body::-webkit-scrollbar-track {
 
 /* Ícones dos nav-links */
 .nav-item .fa-solid {
-  margin-right: 5px;
+  margin-right: 4px;
   font-size: 100%;
 }
 
@@ -297,7 +298,8 @@ body::-webkit-scrollbar-track {
 /* Estilo hover do botão "Fechar" */
 .msg_close:hover:before {
   color: #fff4c2;
-  text-shadow: 0 0 1px #ff531e, 0 0 2px #ff531e, 0 0 3px #ff531e, 0 0 4px #ff531e, 0 0 5px #ff531e, 0 0 10px #ff531e, 0 0 15px #ff531e, 0 0 20px #ff531e, 0 0 100px #ff531e;
+  text-shadow: 0 0 1px #ff531e, 0 0 2px #ff531e, 0 0 3px #ff531e, 0 0 4px #ff531e, 0 0 5px #ff531e, 0 0 10px #ff531e, 0 0 15px #ff531e,
+    0 0 20px #ff531e, 0 0 100px #ff531e;
 }
 
 /* Título do formulário */
@@ -474,7 +476,9 @@ textarea::placeholder {
   background-color: rgba(192, 203, 2, 0.3);
   color: #fff4c2;
   font-weight: bolder;
-  text-shadow: 0 0 1px rgba(255, 83, 30, 0.5), 0 0 2px rgba(255, 83, 30, 0.5), 0 0 3px rgba(255, 83, 30, 0.5), 0 0 4px rgba(255, 83, 30, 0.5), 0 0 5px rgba(255, 83, 30, 0.5), 0 0 10px rgba(255, 83, 30, 0.5), 0 0 15px rgba(255, 83, 30, 0.5), 0 0 20px rgba(255, 83, 30, 0.5), 0 0 100px rgba(255, 83, 30, 0.5);
+  text-shadow: 0 0 1px rgba(255, 83, 30, 0.5), 0 0 2px rgba(255, 83, 30, 0.5), 0 0 3px rgba(255, 83, 30, 0.5), 0 0 4px rgba(255, 83, 30, 0.5),
+    0 0 5px rgba(255, 83, 30, 0.5), 0 0 10px rgba(255, 83, 30, 0.5), 0 0 15px rgba(255, 83, 30, 0.5), 0 0 20px rgba(255, 83, 30, 0.5),
+    0 0 100px rgba(255, 83, 30, 0.5);
   margin-top: 30px;
   width: 100%;
   padding: 10px 0;
@@ -553,13 +557,15 @@ textarea::placeholder {
   font-size: 25px;
   opacity: 0.7;
   cursor: pointer;
-  text-shadow: 0 0 1px #191919, 0 0 2px #191919, 0 0 3px #191919, 0 0 4px #191919, 0 0 5px #191919, 0 0 10px #191919, 0 0 15px #191919, 0 0 20px #191919, 0 0 100px #191919;
+  text-shadow: 0 0 1px #191919, 0 0 2px #191919, 0 0 3px #191919, 0 0 4px #191919, 0 0 5px #191919, 0 0 10px #191919, 0 0 15px #191919,
+    0 0 20px #191919, 0 0 100px #191919;
 }
 
 /* Estilo do hover do botão "Fechar" */
 .form_close:hover:before {
   color: #fff4c2;
-  text-shadow: 0 0 1px #ff531e, 0 0 2px #ff531e, 0 0 3px #ff531e, 0 0 4px #ff531e, 0 0 5px #ff531e, 0 0 10px #ff531e, 0 0 15px #ff531e, 0 0 20px #ff531e, 0 0 100px #ff531e;
+  text-shadow: 0 0 1px #ff531e, 0 0 2px #ff531e, 0 0 3px #ff531e, 0 0 4px #ff531e, 0 0 5px #ff531e, 0 0 10px #ff531e, 0 0 15px #ff531e,
+    0 0 20px #ff531e, 0 0 100px #ff531e;
 }
 
 /* Título do formulário */
@@ -686,7 +692,9 @@ textarea::placeholder {
   background-color: rgba(192, 203, 2, 0.3);
   color: #fff4c2;
   font-weight: bolder;
-  text-shadow: 0 0 1px rgba(255, 83, 30, 0.5), 0 0 2px rgba(255, 83, 30, 0.5), 0 0 3px rgba(255, 83, 30, 0.5), 0 0 4px rgba(255, 83, 30, 0.5), 0 0 5px rgba(255, 83, 30, 0.5), 0 0 10px rgba(255, 83, 30, 0.5), 0 0 15px rgba(255, 83, 30, 0.5), 0 0 20px rgba(255, 83, 30, 0.5), 0 0 100px rgba(255, 83, 30, 0.5);
+  text-shadow: 0 0 1px rgba(255, 83, 30, 0.5), 0 0 2px rgba(255, 83, 30, 0.5), 0 0 3px rgba(255, 83, 30, 0.5), 0 0 4px rgba(255, 83, 30, 0.5),
+    0 0 5px rgba(255, 83, 30, 0.5), 0 0 10px rgba(255, 83, 30, 0.5), 0 0 15px rgba(255, 83, 30, 0.5), 0 0 20px rgba(255, 83, 30, 0.5),
+    0 0 100px rgba(255, 83, 30, 0.5);
   margin-top: 30px;
   width: 100%;
   padding: 10px 0;
@@ -744,11 +752,11 @@ textarea::placeholder {
 
 @media screen and (max-width: 990px) {
   .page-content {
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  gap: none;
-  padding: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: none;
+    padding: none;
   }
 }
 
@@ -762,11 +770,11 @@ textarea::placeholder {
 /* Container de Vídeo Para Celulares */
 @media screen and (max-width: 990px) {
   .video-container {
-  flex-direction: column;
-  align-items: center;
-  margin-top: 140px;
-  gap: none;
-  padding: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 140px;
+    gap: none;
+    padding: none;
   }
 }
 
@@ -794,7 +802,7 @@ textarea::placeholder {
 /* Cor da barra de rolagem da lista */
 .video-playlist .videos::-webkit-scrollbar-thumb {
   border-radius: 0.4rem;
-  background-color: #FFF4C2;
+  background-color: #fff4c2;
 }
 
 .video-playlist .videos .video {
@@ -818,9 +826,8 @@ textarea::placeholder {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px);
-  color: #FFF4C2;
+  color: #fff4c2;
 }
-
 
 .main-video video {
   width: 150%;

@@ -20,7 +20,11 @@ public class Voluntarios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< Updated upstream
     private long id;
+=======
+    private Long id_voluntario;
+>>>>>>> Stashed changes
     private String disponibilidade;
     private String interesses;
 
@@ -31,7 +35,7 @@ public class Voluntarios {
     // toString
     @Override
     public String toString() {
-        return "Voluntarios [id=" + id + ", disponibilidade=" + disponibilidade +
+        return "Voluntarios [id_voluntario=" + id_voluntario + ", disponibilidade=" + disponibilidade +
                ", interesses=" + interesses + ", usuario=" + usuario + "]";
     }
 }

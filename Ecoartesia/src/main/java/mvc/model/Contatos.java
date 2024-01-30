@@ -14,7 +14,11 @@ public class Contatos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< Updated upstream
     private long id;
+=======
+    private Long id_contato;
+>>>>>>> Stashed changes
     private String nome;
     private String email;
     private String telefone;
@@ -26,7 +30,7 @@ public class Contatos {
 
     @Override
     public String toString() {
-        return "Contatos [id=" + id + ", nome=" + nome + ", email=" + email + 
+        return "Contatos [id_contato=" + id_contato + ", nome=" + nome + ", email=" + email + 
                ", telefone=" + telefone + ", mensagem=" + mensagem + "]";
     }
 }

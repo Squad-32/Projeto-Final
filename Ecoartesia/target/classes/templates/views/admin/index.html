@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Nossos Cursos</title>
+    <title>Painel Administrativo</title>
     <meta
       name="description"
       content="Conheça a Ecoartesia, uma organização comprometida com a promoção da conscientização ambiental, diversidade e sustentabilidade. Explore nossos projetos, cursos, notícias e produtos que visam criar um futuro mais inclusivo e ecologicamente responsável. Junte-se a nós na busca por fazer a diferença no mundo." />
@@ -20,15 +20,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png" />
     <link rel="manifest" href="./img/site.webmanifest" />
     <!-- CSS do Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Arquivo CSS -->
-    <link rel="stylesheet" href="./css/cursos.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
     <!-- Ícones -->
-    <script src="https://kit.fontawesome.com/5ec96718ca.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- Fontes -->
     <link
       href="https://www.dafontfree.net/embed/YWxiZXJ0dXMtbWVkaXVtLXJlZ3VsYXImZGF0YS8zMTEvbi8xODI2NzAvTm8tY3JtbnkudHRm"
@@ -188,20 +185,141 @@
       </div>
     </section>
 
-    <!-- Conteúdo da página -->
-    <div class="video-container">
-      <main class="page-content">
-        <!-- Player de Vídeo -->
-        <section class="main-video">
-          <video src="./vid/Diversidade e inclusão.mp4" controls autoplay muted></video>
-          <h3 class="title">Diversidade e inclusão</h3>
-        </section>
-        <!-- Lista de Vídeos -->
-        <section class="video-playlist">
-          <div class="videos"></div>
-        </section>
-      </main>
-    </div>
+    <!------------------------------------------------ Conteúdo da página ----------------------------------------------->
+    <section class="section admin">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/views/usuarios.html">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/views/livros.html">Livros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/views/compras.html">Compras</a>
+        </li>
+      </ul>
+
+      <section class="container">
+        <div class="p-4">
+          <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary mb-2 create">Novo Livro</button>
+
+          <table class="table table-responsive table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Mensagem</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="contato: ${contatos}">
+                <td th:text="${contato.id}"></td>
+                <td th:text="${contato.autor}"></td>
+                <td th:text="${contato.editora}"></td>
+                <td th:text="${contato.nome}"></td>
+                <td th:text="${contato.preco}"></td>
+                <td>
+                  <div class="d-flex">
+                    <!-- Botão Editar -->
+                    <a
+                      th:href="@{'/livros/editar/' + ${contato.id}}"
+                      class="btn btn-primary mx-1"
+                      data-bs-toggle="modal"
+                      th:data-bs-target="'#exampleModal' + ${contato.id}"
+                      title="Editar">
+                      Editar
+                    </a>
+
+                    <!-- Botão Deletar -->
+                    <a
+                      th:href="@{'/livros/' + ${l.id} + '/excluir'}"
+                      class="btn btn-danger mx-1"
+                      title="Deletar"
+                      onclick="return confirm('Deseja excluir o livro?')">
+                      Deletar
+                    </a>
+
+                    <!-- Modal -->
+                    <div class="modal fade" th:id="'exampleModal' + ${l.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form th:action="@{/livros/cadastrar}" method="post" th:object="${usuario}">
+                              <input type="hidden" id="id" name="id" class="form-control" th:value="${l.id}" />
+                              <div class="form-group mb-3">
+                                <label for="nome" class="form-label"> Nome </label>
+                                <input type="text" id="nome" name="nome" class="form-control" th:value="${l.nome}" />
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="email" class="form-label"> Autor </label>
+                                <input type="text" id="autor" name="autor" class="form-control" th:value="${l.autor}" />
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="email" class="form-label"> Editora </label>
+                                <input type="text" id="editora" name="editora" class="form-control" th:value="${l.editora}" />
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="senha" class="form-label"> Preço </label>
+                                <input type="number" id="preco" name="preco" class="form-control" step="0.01" th:value="${l.preco}" />
+                              </div>
+
+                              <button type="submit" class="btn btn-primary">Enviar</button>
+                              <a href="/views/livros.html" class="btn btn-danger" style="margin-left: 10px"> Cancelar </a>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form th:action="@{/livros/cadastrar}" method="post" th:object="${livro}">
+                <input type="hidden" id="id" name="id" class="form-control" value="" />
+                <div class="form-group mb-3">
+                  <input type="text" id="nome" name="nome" class="form-control" value="" placeholder="Digite seu nome" required />
+                </div>
+                <div class="form-group mb-3">
+                  <input type="text" id="autor" name="autor" class="form-control" value="" placeholder="Digite seu email" required />
+                </div>
+                <div class="form-group mb-3">
+                  <input type="text" id="editora" name="editora" class="form-control" value="" placeholder="Digite seu email" required />
+                </div>
+                <div class="form-group mb-3">
+                  <input type="number" id="preco" name="preco" class="form-control" step="0.01" value="" placeholder="Digite seu email" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <a th:href="@{/admin}" class="btn btn-danger" style="margin-left: 10px"> Cancelar </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!------------------------------------------------------------------------------------------------------------------->
 
     <!-- Início do Rodapé -->
     <footer class="text-center custom-footer">
@@ -217,7 +335,12 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/5ec96718ca.js" crossorigin="anonymous"></script>
+    <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
     <!-- Link do JavaScript -->
-    <script src="./js/cursos.js"></script>
+    <script src="./js/admin.js"></script>
   </body>
 </html>

@@ -1,5 +1,7 @@
 package mvc.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,9 +16,13 @@ public class Visualizacoes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< Updated upstream
     private long id_visualizacao;
+=======
+    private Long id_visualizacao;
+>>>>>>> Stashed changes
     private String tempo_visto;
-    private String data_vista;
+    private LocalDateTime data_vista;
 
     @OneToOne(mappedBy = "visualizacao")
     private Videos video;

@@ -21,6 +21,7 @@ public class Usuarios {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
+<<<<<<< Updated upstream
 	private Long id_usuario;
 	private String nome;
 	private String email;
@@ -68,10 +69,20 @@ public class Usuarios {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+=======
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id_usuario;
+    private String nome;
+    private String email;
+    private String telefone;
+    private String senha;
+>>>>>>> Stashed changes
 
 	
 	// TOOSTRING
 
+<<<<<<< Updated upstream
 	@Override
 	public String toString() {
 		return "Usuarios [id_usuario=" + id_usuario + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone
@@ -81,3 +92,33 @@ public class Usuarios {
 }
 	
 	
+=======
+    @OneToMany(mappedBy = "usuario")
+    private Set<Voluntarios> voluntarios;
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<Doacoes> doacoes;
+
+    @ManyToMany
+    @JoinTable(
+        name = "Assiste_Videos",
+        joinColumns = @JoinColumn(name = "fk_Usuarios_id_usuario"),
+        inverseJoinColumns = @JoinColumn(name = "fk_Videos_id_video")
+    )
+    private Set<Videos> videosAssistidos;
+
+    @ManyToMany
+    @JoinTable(
+        name = "Usuarios_Participa",
+        joinColumns = @JoinColumn(name = "fk_Usuarios_id_usuario"),
+        inverseJoinColumns = @JoinColumn(name = "fk_Campanhas_id_campanha")
+    )
+    private Set<Campanhas> campanhasParticipadas;
+
+    @Override
+    public String toString() {
+        return "Usuarios [id_usuario=" + id_usuario + ", nome=" + nome + ", email=" + email + 
+               ", telefone=" + telefone + ", senha=" + senha + "]";
+    }
+}
+>>>>>>> Stashed changes
