@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Home</title>
+    <meta
+      name="description"
+      content="Conheça a Ecoartesia, uma organização comprometida com a promoção da conscientização ambiental, diversidade e sustentabilidade. Explore nossos projetos, cursos que visam criar um futuro mais inclusivo e ecologicamente responsável. Junte-se a nós na busca por fazer a diferença no mundo." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Squad 32" />
+    <meta name="copyright" content="Squad 32" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/img/android-chrome-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+    <link rel="manifest" href="/img/site.webmanifest" />
+    <!-- CSS do Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous" />
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="/css/index.css" />
+    <!-- Ícones -->
+    <script src="https://kit.fontawesome.com/5ec96718ca.js" crossorigin="anonymous"></script>
+    <!-- Fontes -->
+    <link
+      href="https://www.dafontfree.net/embed/YWxiZXJ0dXMtbWVkaXVtLXJlZ3VsYXImZGF0YS8zMTEvbi8xODI2NzAvTm8tY3JtbnkudHRm"
+      rel="stylesheet"
+      type="text/css" />
+  </head>
+
+  <body class="d-flex flex-column bg-image">
+    <!-- Header -->
+    <header class="header">
+      <!-- Barra de Navegação -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-navbar flex-column align-items-center bg-image">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}">
+            <img src="/img/Ecoartesia - Lemon Chiffon.png" alt="Ecoartesia" class="img-fluid" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="fa-solid fa-bars fa-fade"></span>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="fa-solid fa-bars fa-fade"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/sobre}"><span class="fa-solid fa-users-line fa-fade"></span> Sobre Nós </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/projetos}"><span class="fa-solid fa-handshake-angle fa-fade"></span> Projetos e Ações </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/cursos}"><span class="fa-solid fa-person-chalkboard fa-fade"></span> Cursos </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/faca}"><span class="fa-solid fa-circle-dollar-to-slot fa-fade"></span> Faça Sua Parte! </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-link" id="msg-open"><span class="fa-solid fa-envelope fa-fade"></span> Contato </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-link" id="form-open"><span class="fa-solid fa-right-to-bracket fa-fade"></span> Login </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Escurece o fundo quando o menu hamburguer é aberto -->
+    <div id="overlay"></div>
+
+    <!-- Home -->
+    <section class="home">
+      <!-- Formulário de Contato -->
+      <section class="msg_sec">
+        <div class="msg_container bg-image">
+          <i class="fa-solid fa-xmark fa-fade msg_close"></i>
+          <form action="#">
+            <h2>Contato</h2>
+
+            <div class="form-group">
+              <input type="text" placeholder="Digite seu nome" required />
+              <i class="fa-solid fa-user fa-fade name"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="email" placeholder="Digite seu email" required />
+              <i class="fa-solid fa-envelope fa-fade email"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" placeholder="Telefone" required />
+              <i class="fa-solid fa-phone fa-fade phone"></i>
+            </div>
+
+            <div class="form-group" id="form-group-msg">
+              <textarea placeholder="Digite sua mensagem..." required></textarea>
+              <i class="fa-regular fa-comment-dots fa-fade message"></i>
+            </div>
+            <button class="msg_button">Enviar Mensagem</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Formulário de login e cadastro -->
+      <div class="form_container">
+        <i class="fa-solid fa-xmark fa-fade form_close" id="X"></i>
+        <!-- Formulário de login -->
+        <div class="form login_form">
+          <form action="#">
+            <h2>Login</h2>
+
+            <div class="form-group">
+              <input type="email" placeholder="Digite seu email"/>
+              <i class="fa-solid fa-envelope fa-fade email"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="password" placeholder="Digite sua senha"/>
+              <i class="fa-solid fa-unlock-keyhole fa-fade password"></i>
+              <i class="fa-solid fa-eye-slash fa-fade pw_hide"></i>
+            </div>
+
+            <div class="option_field">
+              <span class="checkbox">
+                <input type="checkbox" id="check" />
+                <label for="check">Lembre-se de mim</label>
+              </span>
+              <a href="#" class="forgot_pw" id="forgot_custom">Esqueceu sua senha?</a>
+            </div>
+
+            <button class="lgn_button">Fazer Login</button>
+
+            <div class="login_signup">Não possui uma conta? <a href="#" id="signup">Cadastrar</a></div>
+            <div class="login_signup">Área do Admnistrador <a th:href="@{/usuarios}" id="signup">Entrar</a></div>
+          </form>
+        </div>
+
+        <!-- Formulário de cadastro -->
+        <div class="form signup_form">
+          <form action="#">
+            <h2>Cadastro</h2>
+
+            <div class="form-group">
+              <input type="text" placeholder="Digite seu nome" required />
+              <i class="fa-solid fa-user fa-fade name"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="email" placeholder="Digite seu email" required />
+              <i class="fa-solid fa-envelope fa-fade email"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" placeholder="Telefone" required />
+              <i class="fa-solid fa-phone fa-fade phone"></i>
+            </div>
+
+            <div class="form-group">
+              <input type="password" placeholder="Senha" required />
+              <i class="fa-solid fa-unlock-keyhole fa-fade password"></i>
+              <i class="fa-solid fa-eye-slash fa-fade pw_hide"></i>
+            </div>
+
+            <button class="sgn_button">Fazer Cadastro</button>
+
+            <div class="login_signup">Já possui uma conta? <a href="#" id="login">Login</a></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conteúdo da página -->
+    <section class="section parallax">
+      <div class="container">
+        <h2 class="display-3 display-md-4 bg-image">SEMEANDO</h2>
+        <h2 class="display-3 display-md-4 bg-image">O FUTURO</h2>
+        <p class="fs-4 fs-md-2 bg-image">"REUTILIZA o passado, RECICLA o presente, SALVA o futuro."</p>
+      </div>
+    </section>
+
+    <!-- Porcentagem/Dados -->
+    <section class="section-data">
+      <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col">
+            <h2>20 <br /></h2>
+            <p>
+              milhões de pessoas são deslocadas <br />
+              para outros países por conta <br />
+              do clima.
+            </p>
+          </div>
+          <div class="col">
+            <h2 class="title-coluna">84,5%<br /></h2>
+            <p>
+              das vítimas do desastre de <br />
+              mariana, eram negras.
+            </p>
+          </div>
+          <div class="col">
+            <h2 class="title-coluna">625<br /></h2>
+            <p>conflitos relacionados à discriminação de populações e minorias étnicas pela degradação do meio ambiente.<br /></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre nós -->
+    <div class="row card-group">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Sobre nós</h5>
+            <p class="card-text">
+              A Ecoartesia é mais do que uma organização; é um movimento pela mudança positiva! Conheça um pouco mais sobre nós.
+            </p>
+            <a href="/sobre-nos.html" class="btn btn-primary" id="btn-sobre">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+      <!-- Projetos e ações -->
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Projetos e ações</h5>
+            <p class="card-text">Na Ecoartesia, nos empenhados na transformação sustentável e inclusiva. Conheça nossos projetos e ações.</p>
+            <a href="/projetos-e-acoes.html" class="btn btn-primary" id="btn-acoes">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Início do Rodapé -->
+    <footer class="text-center custom-footer bg-image">
+      <div class="text-center p-3">
+        Todos os direitos reservados © 2023 Ecoartesia<br />
+        Email: <a class="email" href="mailto:ecoartesia@outlook.com">ecoartesia@outlook.com</a>
+      </div>
+    </footer>
+
+    <!-- Link para o JavaScript do Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+
+    <!-- Link do JavaScript -->
+    <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+# Ignore temporary files from the operating system / Ignorar arquivos temporários do sistema operacional
+*~
+.DS_Store
+Thumbs.db
+
+# Ignore editor configuration files / Ignorar arquivos de configuração do editor
+*.code-workspace
+.vscode/
+.idea/
+
+# Ignore dependency files / Ignorar arquivos de dependências
+node_modules/
+vendor/
+
+# Ignore build files / Ignorar arquivos de build
+build/
+dist/
+
+# Ignore log files / Ignorar arquivos de log
+*.log
+
+# ignore ALL files in ANY directory named temp / ignorar TODOS os arquivos em QUALQUER diretório chamado temp
+temp/
+
+# Ignore cache files / Ignorar arquivos de cache
+*.cache
+/bin/

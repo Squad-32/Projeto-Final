@@ -1,0 +1,323 @@
+/*Link fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&display=swap');
+
+/* Padrão Gradiente Noise */
+.bg-image {
+  background-image: url(data:image/png;base64,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);
+}
+
+/* Estilos gerais */
+body {
+  background-color: #fff4c2;
+}
+* {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'roboto';
+}
+
+/* ---------------------------------------------- Barra de Rolagem ---------------------------------------------------- */
+/* width */
+body::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  width: 0.8rem;
+  background-color: #fff4c2;
+  border-left: 1px solid #755026;
+  justify-content: space-between;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(50px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 0.3em;
+  background-color: #c0cb02;
+  border: 2px solid #191919;
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.3), 0 0 20px rgba(192, 203, 2, 0.3);
+}
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+/* Estilo do Header */
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+/* Container do cabeçalho de navegação */
+.navbar {
+  z-index: 2;
+  padding: 1% 3% 0 3%;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(192, 203, 2, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom-right-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  border-bottom: 1px solid #c0cb02;
+  box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilizando a logotipo do menu */
+.navbar-brand img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 15%;
+  filter: drop-shadow(-1px 0 #755026) drop-shadow(0 1px #755026) drop-shadow(1px 0 #755026) drop-shadow(0 -1px #755026);
+  transition: background 0.5s, color 0.5s, box-shadow 0.3s, transform 0.3s ease, text-shadow 0.2s ease-in-out;
+}
+
+/* Efeito do hover na imagem */
+.navbar-brand img:hover {
+  filter: drop-shadow(-1px 0 #755026) drop-shadow(0 1px #755026) drop-shadow(1px 0 #755026) drop-shadow(0 -1px #755026)
+    drop-shadow(0 0 10px rgba(192, 203, 2, 0.6)) drop-shadow(0 0 10px rgba(192, 203, 2, 0.6));
+  transform: scale(1.1) translateY(-5px);
+}
+
+/* Estilizando cada item do menu no menu hambúrguer */
+.navbar-nav li {
+  display: block; /* Para que cada item fique em uma linha separada */
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+/* Estilizando os links dos itens do menu */
+.navbar-nav li a {
+  color: #ffffff;
+  font-size: 1.3vw;
+  font-weight: bolder;
+  text-align: center;
+  text-shadow: -1.5px 0 #755026, 0 1.5px #755026, 1.5px 0 #755026, 0 -1.5px #755026;
+  padding: 10px;
+  border-radius: 0.3em;
+  list-style: none; /* Remover o marcador de lista padrão */
+  margin: 0 20px 0 10px;
+  border-radius: 0.3em;
+  padding: 6px 15px;
+  box-shadow: 0 0 5px rgba(255, 67, 33, 0);
+  transition: background 0.5s, color 0.5s, border-color 0.5s, box-shadow 0.3s, transform 0.3s ease, text-shadow 0.2s ease-in-out;
+}
+
+/* Estilizando o hover nos links dos itens do menu */
+.navbar-nav li a:not(.active):hover {
+  background: rgba(192, 203, 2, 0.8); /* Fundo semi-transparente */
+  text-shadow: -1px 0 #fff4c2, 0 1px #fff4c2, 1px 0 #fff4c2, 0 -1px #fff4c2;
+  color: #755026;
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.6), 0 0 20px rgba(192, 203, 2, 0.6), 0 0 100px rgba(192, 203, 2, 0.6);
+  transform: scale(1.05) translateY(-5px);
+}
+
+/* Cor da guia ativa */
+.navbar .navbar-nav li a.active {
+  background: rgba(192, 203, 2, 0.8); /* Fundo semi-transparente */
+  text-shadow: -1px 0 #fff4c2, 0 1px #fff4c2, 1px 0 #fff4c2, 0 -1px #fff4c2;
+  color: #755026;
+  box-shadow: 0 0 10px rgba(192, 203, 2, 0.6), 0 0 20px rgba(192, 203, 2, 0.6), 0 0 100px rgba(192, 203, 2, 0.6);
+  transform: scale(1.05) translateY(-5px);
+}
+
+/* Aumenta o tamanho da fonte dos links do menu quando o menu hamburguer está aberto */
+@media (max-width: 992px) {
+  .navbar-collapse .nav-link {
+    font-size: 1.5em;
+    color: #fff4c2;
+  }
+}
+
+/* Ícones dos nav-links */
+.nav-item .fa-solid {
+  margin-right: 5px;
+  font-size: 100%;
+}
+
+/* -------------------------------- Escurece o fundo quando o menu hamburguer é aberto -------------------------------- */
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+/* --------------------------------------------------- Menu Hambúrguer ------------------------------------------------ */
+
+/* Ícone do menu hambúrguer */
+.navbar-toggler .fa-bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: #fff4c2;
+  padding-top: 2px;
+}
+.navbar-toggler {
+  text-shadow: -1px -1px 0 #755026, 1px -1px 0 #755026, -1px 1px 0 #755026, 1px 1px 0 #755026;
+}
+
+/* Borda do menu hambúrguer */
+.navbar-toggler {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  border: 3px solid #755026; /* cor externa da borda */
+  box-shadow: inset 0 0 0 3px #fff4c2; /* cor interna da borda */
+  border-radius: 10px; /* arredondamento da borda externa */
+  background-clip: padding-box; /* para evitar que o fundo se estenda até a margem */
+}
+
+/* Define a altura da barra de navegação */
+:root {
+  --navbar-height: 80px; /* Defina a altura da barra de navegação aqui */
+}
+
+/* ------------------------------------------------------ Home -------------------------------------------------------- */
+/* Tamanho e cor da área do conteúdo da página */
+.home {
+  position: relative;
+  width: 100%;
+  background-color: #fff4c2;
+}
+
+/* ----------------------------------------------------- Banner ------------------------------------------------------ */
+/* Estilo da imagem */
+.section.parallax {
+  background-image: url('../img/asafetida-plantas-em-estado-selvagem-vista-lateral.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - var(--navbar-height)); /* Altura total da viewport - altura da barra de navegação */
+  /* margin-top: var(--navbar-height); /* Espaçamento no topo igual à altura da barra de navegação */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+/* Estilo do título */
+.section h2 {
+  padding: 0.4%;
+  border-radius: 0.1em;
+  font-family: 'Fraunces', serif;
+  font-weight: bolder;
+  font-size: 300%;
+  color: #212529;
+  text-shadow: -1.5px 0 #c0cb02, 0 1.5px #c0cb02, 1.5px 0 #c0cb02, 0 -1.5px #c0cb02;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+/* Estilo do parágrafo */
+.section p {
+  padding: 0.2%;
+  margin: 0.5%;
+  border-radius: 0.2em;
+  font-family: 'roboto';
+  font-weight: bolder;
+  color: #212529;
+  text-shadow: -1.5px 0 #c0cb02, 0 1.5px #c0cb02, 1.5px 0 #c0cb02, 0 -1.5px #c0cb02;
+  background-color: rgba(192, 203, 2, 0.7);
+  width: max-content;
+  z-index: -1;
+}
+
+.botao1 {
+  background-color: #ff531e;
+  text-decoration: none;
+  font-size: 90%;
+  list-style: none;
+  color: #fff4c2;
+  padding: 6px 15px;
+  font-weight: bold;
+  text-align: center;
+  transition: color 0.5s, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 5px rgba(255, 67, 33, 0);
+  border: none;
+}
+
+/* Hover do botão */
+.botao1:hover {
+  background-color: #fff4c2;
+  color: #ff531e;
+  box-shadow: 0 0 10px rgba(255, 244, 194, 0.6), 0 0 20px rgba(255, 244, 194, 0.6), 0 0 30px rgba(255, 244, 194, 0.6),
+    0 0 40px rgba(255, 244, 194, 0.6), 0 0 100px rgba(255, 244, 194, 0.6);
+  transform: scale(1.05) translateY(2px);
+}
+
+/* Efeito de clique do botão */
+.botao1:active {
+  background-color: #fff4c2;
+  color: #ff531e;
+  box-shadow: #000000 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+thead{
+	background-color: #755026;
+	color: #fff4c2;
+}
+
+.btnEdit {
+	color: #335230;
+}
+
+.btnEdit:hover {
+	color: #c0cb02 !important;
+}
+
+.btnApagar {
+	color: red !important;
+}
+
+/* -------------------------------------------- Estilo do Rodapé (Footer) -------------------------------------------- */
+/* Propriedades */
+.custom-footer {
+  background-color: rgba(192, 203, 2, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  border-top-right-radius: 0.3em;
+  border-top-left-radius: 0.3em;
+  border-top: 1px solid #c0cb02;
+  color: #335230;
+  font-weight: bold;
+  z-index: 2;
+  padding: 1% 0 1% 0;
+}
+
+/* Estilo do Link */
+footer a {
+  color: #335230;
+  text-decoration: none;
+  transition: text-shadow 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+
+/* Estilo do Link */
+footer a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(192, 203, 2, 1), 0 0 20px rgba(192, 203, 2, 1);
+}

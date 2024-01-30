@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Eco | Usuários</title>
+	<meta
+      name="description"
+      content="Conheça a Ecoartesia, uma organização comprometida com a promoção da conscientização ambiental, diversidade e sustentabilidade. Explore nossos projetos, cursos, notícias e produtos que visam criar um futuro mais inclusivo e ecologicamente responsável. Junte-se a nós na busca por fazer a diferença no mundo." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Squad 32" />
+    <meta name="copyright" content="Squad 32" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="./img/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./img/android-chrome-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png" />
+    <link rel="manifest" href="./img/site.webmanifest" />
+    <!--Link Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+	  <script src="https://kit.fontawesome.com/daaea144c6.js" crossorigin="anonymous"></script>
+	<!-- Arquivo CSS -->
+    <link rel="stylesheet" href="./css/adm.css" />
+    <!-- Ícones -->
+    <script src="https://kit.fontawesome.com/5ec96718ca.js" crossorigin="anonymous"></script>
+    <!-- Fontes -->
+    <link
+      href="https://www.dafontfree.net/embed/YWxiZXJ0dXMtbWVkaXVtLXJlZ3VsYXImZGF0YS8zMTEvbi8xODI2NzAvTm8tY3JtbnkudHRm"
+      rel="stylesheet"
+      type="text/css" />
+  </head>
+
+<body>
+	<header class="header">
+		<nav class="navbar navbar-expand-lg navbar-light bg-navbar flex-column align-items-center bg-image">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/}">
+            <img src="/img/Ecoartesia - Lemon Chiffon.png" alt="Ecoartesia" class="img-fluid" />
+          </a>
+          <button
+			  class="navbar-toggler"
+			  type="button"
+			  data-bs-toggle="collapse"
+			  data-bs-target="#navbarNav"
+			  aria-controls="navbarNav"
+			  aria-expanded="false"
+			  aria-label="Toggle navigation">
+			  <span class="fa-solid fa-bars fa-fade"></span>
+			</button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/usuarios}"><span class="fa-solid fa-users-line fa-fade"></span> Usuários</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/faca}"><span class="fa-solid fa-circle-dollar-to-slot fa-fade"></span> Voluntários</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/contato}"><span class="fa-solid fa-envelope fa-fade"></span> Contato </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/}"><span class="fa-solid fa-right-to-bracket fa-fade"></span> Voltar </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <main>
+      <section class="section parallax">
+        <div class="container">
+          <h2 class="display-3 display-md-4 bg-image">Usuários</h2>
+        </div>
+      </section>
+
+    <section class="container">
+        <div class="p-4">
+		<button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn mb-2 botao1"> Novo Usuario </button>
+		<table class="table table-responsive table-hover">
+                <thead class="thead">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="u : ${usuarios}">
+                        <td th:text="${u.id_usuario}"></td>
+                        <td th:text="${u.nome}" class="name"></td>
+                        <td th:text="${u.telefone}"></td>
+                        <td th:text="${u.email}"></td>
+                        <td>
+                            <div class="d-flex">
+                                <a th:href="@{'/usuarios'}" data-bs-toggle="modal"
+								th:data-bs-target="'#exampleModal' + ${u.id_usuario}" class="mx-1 btnEdit" title="Editar">
+								<i class="ri-file-edit-line"></i>
+								</a>
+                                <a th:href="@{'/usuarios/' + ${u.id_usuario} + '/excluir'}" class="mx-1 btnApagar" title="Cancelar"
+                                    onclick="return confirm('Deseja excluir o usuário?')">
+                                    <i class="ri-delete-bin-2-line"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Modal Atualizar -->
+            <div th:each="u : ${usuarios}">
+                <div class="modal fade" th:id="'exampleModal' + ${u.id_usuario}" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel"> Atualizar </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form th:action="@{/usuarios/atualizar}" method="post" th:object="${u}">
+                                    <input type="hidden" id="id_usuario" name="id_usuario" class="form-control"
+                                        th:value="${u.id_usuario}" />
+                                    <div class="form-group mb-3">
+                                        <label for="nome" class="form-label">Nome</label>
+                                        <input type="text" id="nome" name="nome" class="form-control"
+                                            th:value="${u.nome}" />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" id="email" name="email" class="form-control"
+                                            th:value="${u.email}" />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="telefone" class="form-label">Telefone</label>
+                                        <input type="text" id="telefone" name="telefone" class="form-control"
+                                            th:value="${u.telefone}" />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="senha" class="form-label">Senha</label>
+                                        <input type="password" id="senha" name="senha" class="form-control"
+                                            th:value="${u.senha}" />
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <a href="./usuarios" class="btn btn-danger" style="margin-left: 10px">Cancelar</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Cadastrar -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"> Cadastrar </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/usuarios/cadastrar}" method="post" th:object="${usuario}">
+                        <div class="form-group mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" id="nome" name="nome" class="form-control" th:field="*{nome}" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" th:field="*{email}" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" id="telefone" name="telefone" class="form-control"
+                                th:field="*{telefone}" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" id="senha" name="senha" class="form-control" th:field="*{senha}" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <a href="./usuarios" class="btn btn-danger" style="margin-left: 10px">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+			
+ <!-- Início do Rodapé -->
+    <footer class="text-center custom-footer">
+      <div class="text-center p-3">
+        Todos os direitos reservados © 2023 Ecoartesia<br />
+        Email: <a class="email" href="mailto:ecoartesia@outlook.com">ecoartesia@outlook.com</a>
+      </div>
+    </footer>
+		
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
